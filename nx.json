@@ -17,6 +17,8 @@
   },
   "projects": {
     "webit-node": { "tags": [] },
-    "webit-auth-node": { "tags": [] }
+    "webit-auth-node": { "tags": [] },
+    "webit-client": { "tags": [] },
+    "webit-client-e2e": { "tags": [], "implicitDependencies": ["webit-client"] }
   }
 }
