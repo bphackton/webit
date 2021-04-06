@@ -15,5 +15,8 @@
       "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
-  "projects": { "webit-node": { "tags": [] } }
+  "projects": {
+    "webit-node": { "tags": [] },
+    "webit-auth-node": { "tags": [] }
+  }
 }

@@ -1,3 +1,3 @@
 module.exports = {
-  projects: ['<rootDir>/apps/webit-node'],
+  projects: ['<rootDir>/apps/webit-node', '<rootDir>/apps/webit-auth-node'],
 };
