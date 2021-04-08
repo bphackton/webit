@@ -10,7 +10,8 @@ socket.on('generate qr', (msg) => {
   qrcode.makeCode(msg);
 });
 
-socket.on('webit redirect', (msg) => {
-  console.log('webit redirect RECEIVED: ', msg);
-  window.location.path(msg);
+
+socket.on('webit redirect', (url) => {
+  console.log('webit redirect RECEIVED: ', url);
+  window.location.href = url;
 });
