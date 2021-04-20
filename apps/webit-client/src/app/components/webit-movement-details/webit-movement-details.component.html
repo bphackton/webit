@@ -1,0 +1,16 @@
+<div class="movment">
+    <img class="movment-avatar" [src]="movment.avatar"/>
+    <ul class="movment-detils">
+        <li class="name">{{movment.name}}</li>
+        <li>{{movment.purpose}}</li>
+        <li>{{movment.date | date: 'dd/MM/yyyy'}}</li>
+    </ul>
+    <div class="movment-amount">
+        <div>₪{{movment.amount}}</div>
+        <div class="green-movment" *ngIf="movment.displayMethodCode === 1; else sendMethod">+</div>
+        <ng-template #sendMethod>
+            <div class="red-movment">-</div>
+        </ng-template>
+    </div>
+</div>
+<hr>
