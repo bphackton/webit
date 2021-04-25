@@ -44,12 +44,15 @@
     border:none;
     top: 0;
     left:0;
+    color: white;
+    margin: 5px;
   }
   .trans-info {
     width: 100%;
     text-align: center;
     color: white;
     margin-top: 5px;
+    font-size: 14px;
 
     &.payment-amount {
       display: flex;
