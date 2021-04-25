@@ -1,4 +1,7 @@
 <div class="movements">
-    <webit-waiting-movement-details [waitingMovment]="awaitingMovmentsList"></webit-waiting-movement-details>
+    <webit-waiting-movement-details (showTrans)=test() [waitingMovment]="awaitingMovmentsList"></webit-waiting-movement-details>
 <!--    <webit-movements-list [movmentsList]="completedMovmentsList"></webit-movements-list>-->
 </div>
+
+<div class="tran-details" *ngIf="showDetails"></div>
+

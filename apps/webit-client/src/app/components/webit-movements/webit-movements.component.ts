@@ -71,6 +71,7 @@ export class WebitMovementsComponent implements OnInit {
 
   awaitingMovmentsList: Object;
   completedMovmentsList: Object;
+  showDetails: any = false;
 
   constructor(private webitService: WebitHomepageService) { }
 
@@ -95,4 +96,7 @@ export class WebitMovementsComponent implements OnInit {
       this.getMovements()
   }
 
+  test() {
+    console.log('test')
+  }
 }

@@ -14,7 +14,10 @@
   flex-direction: column;
 }
 .web-view {
-  justify-content: center;
+  //justify-content: center;
+  height: 50vh;
+  border:1px black solid;
+
 }
 .mobile-view {
   padding:10px;
