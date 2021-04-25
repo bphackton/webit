@@ -9,6 +9,7 @@ import { WebitHomepageService } from '../webit-homepage/webit-homepage.service';
 export class WebitMovementsComponent implements OnInit {
 
   userAgent = 'desktop'
+  choosenTrans: any;
 
   checkDevice(){
     var ua = navigator.userAgent;
@@ -96,7 +97,9 @@ export class WebitMovementsComponent implements OnInit {
       this.getMovements()
   }
 
-  test() {
+  clickedTrans(movement) {
+    console.log(movement);
     this.showDetails = !this.showDetails;
+    this.choosenTrans = movement;
   }
 }

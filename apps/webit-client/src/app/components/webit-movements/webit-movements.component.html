@@ -1,27 +1,43 @@
 <div class="movements" *ngIf="!showDetails">
-  <webit-waiting-movement-details (showTrans)=test()
+  <webit-waiting-movement-details (showTrans)=clickedTrans($event)
                                   [waitingMovment]="awaitingMovmentsList"></webit-waiting-movement-details>
   <!--    <webit-movements-list [movmentsList]="completedMovmentsList"></webit-movements-list>-->
 </div>
 
-<div class="tran-details" *ngIf="showDetails">
+<div class="tran-details" *ngIf="showDetails && userAgent === 'mobile'">
+  <button class='back-btn'(click)="clickedTrans(null)">X</button>
   <div class="done-icon"></div>
-    <div class="status-title">העברה בוצעה/ממתינה</div>
+  <div *ngIf="choosenTrans.tranType === 'additon'" class="status-title">
+    העברה הושלמה
+  </div>
+  <div *ngIf="choosenTrans.tranType === 'payment'" class="status-title">העברה מחכה</div>
   <div class="summery-info">
     <div class="trans-info">שילמת ל - (מספר תשלום)</div>
-    <div class="trans-info">סכום תשלום</div>
-    <div class="trans-info">סיבת תשלום</div>
+    <div class="trans-info">
+      <span>סכום תשלום:</span>
+      <span>  {{choosenTrans.amount}}</span>
+      <span>  ש"ח</span>
+    </div>
+    <div class="trans-info">{{choosenTrans.purpose}}:סיבת תשלום</div>
   </div>
   <div class="trans-info">
     <hr>
-    <span>תאריך:</span>
+    <div class="trans-info-sub">
+      <span>:תאריך</span>
+      <span>{{choosenTrans.date}}</span>
+    </div>
     <hr>
-    <span>שעה:</span>
+    <div class="trans-info-sub">
+      <span>:שעה</span>
+      <span>17:23</span>
+    </div>
     <hr>
-    <span>מספר אישור:</span>
+    <div class="trans-info-sub">
+      <span>:מספר אישור</span>
+      <span>{{choosenTrans.id}}</span>
+    </div>
     <hr>
     <span>מידע כללי</span>
   </div>
-  <button (click)="test()">חזור</button>
 </div>
 
