@@ -1,7 +1,9 @@
 <!-- Need here to alert if mobile or web if mobile make it look like mobile-->
 
 <div class="main-page" [ngClass]="{'mobile': userAgent === 'mobile'}">
-  <webit-qr-code></webit-qr-code>
+<!--  <webit-qr-code></webit-qr-code>-->
+  <webit-movements-summary [choosenTrans]="choosenTrans"
+                           *ngIf="showDetails && userAgent === 'desktop'"></webit-movements-summary>
   <webit-movments-summery *ngIf='userAgent === "desktop" && showDetails'></webit-movments-summery>
   <div class="view mobile-view" [ngClass]="{'mobile-view': userAgent === 'mobile',
    'web-view': userAgent === 'desktop'}">
