@@ -1,7 +1,27 @@
-<div class="movements">
-    <webit-waiting-movement-details (showTrans)=test() [waitingMovment]="awaitingMovmentsList"></webit-waiting-movement-details>
-<!--    <webit-movements-list [movmentsList]="completedMovmentsList"></webit-movements-list>-->
+<div class="movements" *ngIf="!showDetails">
+  <webit-waiting-movement-details (showTrans)=test()
+                                  [waitingMovment]="awaitingMovmentsList"></webit-waiting-movement-details>
+  <!--    <webit-movements-list [movmentsList]="completedMovmentsList"></webit-movements-list>-->
 </div>
 
-<div class="tran-details" *ngIf="showDetails"></div>
+<div class="tran-details" *ngIf="showDetails">
+  <div class="done-icon"></div>
+    <div class="status-title">העברה בוצעה/ממתינה</div>
+  <div class="summery-info">
+    <div class="trans-info">שילמת ל - (מספר תשלום)</div>
+    <div class="trans-info">סכום תשלום</div>
+    <div class="trans-info">סיבת תשלום</div>
+  </div>
+  <div class="trans-info">
+    <hr>
+    <span>תאריך:</span>
+    <hr>
+    <span>שעה:</span>
+    <hr>
+    <span>מספר אישור:</span>
+    <hr>
+    <span>מידע כללי</span>
+  </div>
+  <button (click)="test()">חזור</button>
+</div>
 

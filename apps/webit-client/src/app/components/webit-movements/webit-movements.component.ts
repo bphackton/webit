@@ -97,6 +97,6 @@ export class WebitMovementsComponent implements OnInit {
   }
 
   test() {
-    console.log('test')
+    this.showDetails = !this.showDetails;
   }
 }
