@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'webit-movements-summary',
@@ -7,10 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class WebitMovementsSummaryComponent implements OnInit {
   constructor() { }
-
+  @Output() showTrans = new EventEmitter()
   @Input() choosenTrans
+  @Input() userAgent
 
   ngOnInit(): void {
   }
 
+  clickedTrans() {
+    this.showTrans.emit()
+  }
 }

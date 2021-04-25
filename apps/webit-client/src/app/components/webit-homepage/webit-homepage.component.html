@@ -3,9 +3,7 @@
 <div class="main-page" [ngClass]="{'mobile': userAgent === 'mobile'}">
 <!--  <webit-qr-code></webit-qr-code>-->
 
-  <webit-movements-summary [choosenTrans]="choosenTrans"
-                           *ngIf="showDetails && userAgent === 'desktop'"></webit-movements-summary>
-  <webit-movments-summery *ngIf='userAgent === "desktop" && showDetails'></webit-movments-summery>
+  <webit-movements-summary *ngIf="userAgent=== 'desktop'" [choosenTrans]="choosenTrans" [userAgent]="userAgent"></webit-movements-summary>
   <div class="view mobile-view" [ngClass]="{'mobile-view': userAgent === 'mobile',
    'web-view': userAgent === 'desktop'}">
     <h2 class="title">בוקר אור אלכס</h2>

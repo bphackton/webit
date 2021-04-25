@@ -4,6 +4,6 @@
   <!--    <webit-movements-list [movmentsList]="completedMovmentsList"></webit-movements-list>-->
 </div>
 
-<webit-movements-summary [choosenTrans]="choosenTrans"
+<webit-movements-summary [choosenTrans]="choosenTrans" [userAgent]="userAgent" (showTrans)=clickedTrans(null)
                          *ngIf="showDetails && userAgent === 'mobile'"></webit-movements-summary>
 

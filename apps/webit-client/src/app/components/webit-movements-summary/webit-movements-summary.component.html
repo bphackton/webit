@@ -1,6 +1,7 @@
 
   <div class="tran-details">
-    <!--  <button class='back-btn'(click)="clickedTrans(null)">X</button>-->
+    <ng-container *ngIf="choosenTrans">
+      <button *ngIf="userAgent==='mobile'" class='back-btn'(click)="clickedTrans()">X</button>
       <div class="done-icon"></div>
       <div *ngIf="choosenTrans.tranType === 'additon'" class="status-title">
         העברה בוצעה
@@ -32,6 +33,7 @@
         </div>
         <hr>
         <span>מידע כללי</span>
+        <div>{{choosenTrans.desc}}</div>
       </div>
+    </ng-container>
     </div>
-    
