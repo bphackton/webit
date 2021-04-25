@@ -7,6 +7,21 @@ import { WebitHomepageService } from '../webit-homepage/webit-homepage.service';
   styleUrls: ['./webit-movements.component.scss']
 })
 export class WebitMovementsComponent implements OnInit {
+
+  userAgent = 'desktop'
+
+  checkDevice(){
+    var ua = navigator.userAgent;
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {
+      console.log('mobile')
+      this.userAgent = 'mobile'
+    } else {
+      console.log('desktop')
+      this.userAgent = 'desktop'
+    }
+
+  }
+
   // waitingMovmentsList = [
   //   {
   //     name: 'זהבה',
@@ -76,6 +91,7 @@ export class WebitMovementsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.checkDevice()
       this.getMovements()
   }
 

@@ -1,15 +1,28 @@
 <!-- Need here to alert if mobile or web if mobile make it look like mobile-->
 
+<!--add to main page ngclass for if mobile-->
 <div class="main-page">
   <webit-qr-code></webit-qr-code>
 
   <div class="mobile-view">
     <h2 class="mobile-title">בוקר אור בלה בלה</h2>
     <div class="nav-bar">
-      <button class="nav-btn orders"></button>
-      <button class="nav-btn ask"></button>
-      <button class="nav-btn group"></button>
-      <button class="nav-btn give"></button>
+      <div>
+        <button class="nav-btn orders"></button>
+        <span>QR</span>
+      </div>
+      <div>
+        <button class="nav-btn ask"></button>
+        <span>בקש</span>
+      </div>
+      <div>
+        <button class="nav-btn group"></button>
+        <span>קבוצה</span>
+      </div>
+      <div>
+        <button class="nav-btn give"></button>
+        <span>שלח</span>
+      </div>
     </div>
     <webit-movements></webit-movements>
   </div>

@@ -1,54 +1,60 @@
 .movment {
+  display: flex;
+  align-items: center;
+  direction: rtl;
+  margin: 13px;
+  color: #e0e0e0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+
+  img.movment-avatar {
+    background-color: white;
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+  }
+
+  ul.movment-detils {
+    direction: rtl;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    width: 70%;
+
+    .name {
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+
+  .movment-amount {
     display: flex;
     align-items: center;
-    direction: rtl;
-    margin: 13px;
-    color: #e0e0e0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    img.movment-avatar {
-        background-color: white;
-        height: 38px;
-        width: 38px;
-        border-radius: 50%;
-    }
-    ul.movment-detils {
-        direction: rtl;
-        list-style: none;
-        padding: 10px;
-        margin: 0;
-        width: 70%;
-        .name {
-            font-weight: bold;
-            font-size: 18px;
-        }
-    }
-    .movment-amount {
-        display: flex;
-        flex-direction: row;
-        .green-movment {
-            background-color: #2ba73c;
-            border-radius: 50%;
-            width: 14px;
-            height: 14px;
-            text-align: center;
-            font-size: 12px;
-            margin-right: 5px;
-         }
-        .red-movment {
-            background-color: #c81f48;
-            border-radius: 50%;
-            width: 14px;
-            height: 14px;
-            text-align: center;
-            font-size: 12px;
-            margin-right: 5px;
+    justify-content: center;
 
-        }
+    .movement-icon {
+      border-radius: 50%;
+      width: 14px;
+      height: 14px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
     }
+
+    .green-movment {
+      background-color: #2ba73c;
+    }
+
+    .red-movment {
+      background-color: #c81f48;
+    }
+  }
 }
+
 hr {
-    border: 0;
-    border-top: 1px solid #e0e0e06b;
-    margin: 13px;
+  border: 0;
+  border-top: 1px solid #e0e0e06b;
+  margin: 13px;
 }
