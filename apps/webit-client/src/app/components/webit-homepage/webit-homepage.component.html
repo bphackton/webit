@@ -2,6 +2,7 @@
 
 <div class="main-page" [ngClass]="{'mobile': userAgent === 'mobile'}">
 <!--  <webit-qr-code></webit-qr-code>-->
+
   <webit-movements-summary [choosenTrans]="choosenTrans"
                            *ngIf="showDetails && userAgent === 'desktop'"></webit-movements-summary>
   <webit-movments-summery *ngIf='userAgent === "desktop" && showDetails'></webit-movments-summery>
