@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { WebitHomepageService } from '../webit-homepage/webit-homepage.service';
+import { UserAgentService } from '../../user-agent.service';
 
 @Component({
   selector: 'webit-movements',
@@ -65,19 +66,7 @@ export class WebitMovementsComponent implements OnInit {
   completedMovmentsList: Object;
   showDetails: any = false;
 
-  constructor(private webitService: WebitHomepageService) { }
-
-  checkDevice(){
-    let ua = navigator.userAgent;
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {
-      console.log('mobile')
-      this.userAgent = 'mobile'
-    } else {
-      console.log('desktop')
-      this.userAgent = 'desktop'
-    }
-
-  }
+  constructor(private webitService: WebitHomepageService, private userAgentService: UserAgentService) { }
 
   private getMovements() {
     this.webitService.getAwaitingMovments().subscribe(
@@ -96,7 +85,7 @@ export class WebitMovementsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.checkDevice()
+    this.userAgent = this.userAgentService.checkDevice()
       this.getMovements()
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WebitHomepageService } from './webit-homepage.service';
+import { UserAgentService } from '../../user-agent.service';
 
 @Component({
   selector: 'webit-homepage',
@@ -11,9 +12,10 @@ export class WebitHomepageComponent implements OnInit {
   showDetails = false;
   choosenTrans: any;
 
-  constructor() { }
+  constructor( private userAgentService: UserAgentService) { }
 
   ngOnInit(): void {
+    this.userAgent = this.userAgentService.checkDevice()
   }
 
 
