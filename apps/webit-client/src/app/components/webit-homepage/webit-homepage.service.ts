@@ -6,9 +6,13 @@ export class WebitHomepageService {
 
     constructor(private http: HttpClient) {}
 
-    getMovments() {
+    getAwaitingMovments() {
         const route = 'https://webitapimanagment.azure-api.net/awaiting';
         return this.http.request('GET', route)
     }
+  getCompletedMovments() {
+    const route = 'https://webitapimanagment.azure-api.net/completed';
+    return this.http.request('GET', route)
+  }
 
 }

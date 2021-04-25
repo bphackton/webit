@@ -1,1 +1,5 @@
-<div>webit-waiting-movement-details works!</div>
+<div>
+  <div *ngFor="let movment of waitingMovment">
+    <webit-movement-details [movment]="movment"></webit-movement-details>
+  </div>
+</div>
