@@ -12,13 +12,12 @@
   </div>
   <div *ngIf="choosenTrans.tranType === 'payment'" class="status-title">העברה מחכה</div>
   <div class="summery-info">
-    <div class="trans-info">שילמת ל - (מספר תשלום)</div>
-    <div class="trans-info">
-      <span>סכום תשלום:</span>
+    <div class="trans-info">שילמת ל {{choosenTrans.sentTo}}</div>
+    <div class="trans-info payment-amount">
       <span>  {{choosenTrans.amount}}</span>
       <span>  ש"ח</span>
     </div>
-    <div class="trans-info">{{choosenTrans.purpose}}:סיבת תשלום</div>
+    <div class="trans-info">{{choosenTrans.purpose}}</div>
   </div>
   <div class="trans-info">
     <hr>
@@ -34,7 +33,7 @@
     <hr>
     <div class="trans-info-sub">
       <span>:מספר אישור</span>
-      <span>{{choosenTrans.id}}</span>
+      <span>{{choosenTrans.sumbitId}}</span>
     </div>
     <hr>
     <span>מידע כללי</span>
