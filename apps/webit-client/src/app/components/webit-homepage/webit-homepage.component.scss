@@ -9,12 +9,16 @@
   width: 100vw;
 }
 
-.mobile-view {
+.view {
   display: flex;
   flex-direction: column;
+}
+.web-view {
   justify-content: center;
-  //height: 100%;
+}
+.mobile-view {
   padding:10px;
+  //height: 100%;
 
   .mobile-title {
     color: white;
