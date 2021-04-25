@@ -7,7 +7,7 @@
     </ul>
     <div class="movment-amount">
         <div>₪{{movment.amount}}</div>
-        <div class="green-movment" *ngIf="movment.displayMethodCode === 1; else sendMethod">+</div>
+        <div class="green-movment" *ngIf="movment.tranType === 'additon'; else sendMethod">+</div>
         <ng-template #sendMethod>
             <div class="red-movment">-</div>
         </ng-template>

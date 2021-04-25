@@ -7,21 +7,12 @@ import { WebitHomepageService } from './webit-homepage.service';
   styleUrls: ['./webit-homepage.component.scss']
 })
 export class WebitHomepageComponent implements OnInit {
-  movsments;
 
-  constructor(private webitService: WebitHomepageService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getMovemetns()
   }
 
-  private getMovemetns() {
-    this.webitService.getMovments().subscribe(
-      res => {
-        console.log(res)
-      }
-    )
 
-  }
 
 }
