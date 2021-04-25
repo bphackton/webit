@@ -7,6 +7,9 @@ import { WebitHomepageService } from './webit-homepage.service';
   styleUrls: ['./webit-homepage.component.scss']
 })
 export class WebitHomepageComponent implements OnInit {
+  userAgent: string;
+  showDetails = false;
+  choosenTrans: any;
 
   constructor() { }
 
@@ -14,5 +17,9 @@ export class WebitHomepageComponent implements OnInit {
   }
 
 
-
+  clickedTrans(movement) {
+    console.log(movement ,'in home page');
+    this.showDetails = !this.showDetails;
+    this.choosenTrans = movement;
+  }
 }

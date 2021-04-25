@@ -3,7 +3,7 @@
 <!--add to main page ngclass for if mobile-->
 <div class="main-page" [ngClass]="{'mobile': true}">
   <webit-qr-code></webit-qr-code>
-
+  <webit-movments-summery *ngIf='userAgent === "desktop && showDetails"'></webit-movments-summery>
   <div class="view mobile-view" [ngClass]="{'mobile-view': true, 'web-view': false}">
     <h2 class="title">בוקר אור אלכס</h2>
     <div class="nav-bar">
@@ -24,6 +24,6 @@
         <span>שלח</span>
       </div>
     </div>
-    <webit-movements></webit-movements>
+    <webit-movements (showTrans)=clickedTrans($event)></webit-movements>
   </div>
 </div>
