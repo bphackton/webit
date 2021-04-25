@@ -11,7 +11,7 @@ import { WebitWaitingMovementDetailsComponent } from './components/webit-waiting
 import { WebitHomepageService } from './components/webit-homepage/webit-homepage.service'
 import { UserAgentService } from './user-agent.service'
 import { HttpClientModule } from '@angular/common/http';
-import { WebitMovementsSummaryComponent } from './components/webit-movments-summary/webit-movments-summary.component';
+import { WebitMovementsSummaryComponent } from './components/webit-movements-summary/webit-movements-summary.component';
 
 @NgModule({
   declarations: [
