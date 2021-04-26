@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: 'poalim-bold';
+    src: url(./assets/fonts/poalimsans-bit-bold.woff);
+  }
+
+  @font-face {
+    font-family: 'poalim-medium';
+    src: url(./assets/fonts/poalimsans-bit-medium-webfont.woff);
+  }
+
+  @font-face {
+    font-family: 'poalim-light';
+    src: url(./assets/fonts/poalimsans-bit-light-webfont.woff);
+  }
+  
+body {
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+    font-family: 'poalim-light';
+}

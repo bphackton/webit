@@ -8,10 +8,10 @@
       </div>
       <div *ngIf="choosenTrans.tranType === 'payment'" class="status-title">העברה מחכה</div>
       <div class="summery-info">
-        <div class="trans-info">שילמת ל {{choosenTrans.sentTo}}</div>
+        <div class="trans-info">העברת ל {{choosenTrans.sentTo}}</div>
         <div class="trans-info payment-amount">
-          <span>  {{choosenTrans.amount}}</span>
-          <span>  ש"ח</span>
+          <span>{{choosenTrans.amount}}</span>
+          <span>ש״ח</span>
         </div>
         <div class="trans-info">{{choosenTrans.purpose}}</div>
       </div>

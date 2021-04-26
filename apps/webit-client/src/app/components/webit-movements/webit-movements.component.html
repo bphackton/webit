@@ -1,4 +1,4 @@
-<div class="movements" *ngIf="!showDetails">
+<div class="movements" *ngIf="!showDetails || userAgent === 'desktop'">
   <webit-waiting-movement-details (showTrans)=clickedTrans($event)
                                   [waitingMovment]="awaitingMovmentsList"></webit-waiting-movement-details>
   <!--    <webit-movements-list [movmentsList]="completedMovmentsList"></webit-movements-list>-->
