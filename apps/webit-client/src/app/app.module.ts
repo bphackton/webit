@@ -12,6 +12,8 @@ import { WebitHomepageService } from './components/webit-homepage/webit-homepage
 import { UserAgentService } from './user-agent.service'
 import { HttpClientModule } from '@angular/common/http';
 import { WebitMovementsSummaryComponent } from './components/webit-movements-summary/webit-movements-summary.component';
+import {QRCodeModule} from 'angular2-qrcode';
+import {AuthService} from './auth.service';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,13 @@ import { WebitMovementsSummaryComponent } from './components/webit-movements-sum
     WebitWaitingMovementDetailsComponent,
     WebitMovementsSummaryComponent
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [UserAgentService, WebitHomepageService],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        QRCodeModule
+    ],
+  providers: [UserAgentService, WebitHomepageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
