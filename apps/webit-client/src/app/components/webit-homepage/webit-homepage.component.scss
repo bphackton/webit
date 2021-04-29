@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: flex-start;
   margin: 10px auto;
-  height: calc(100vh - 20px) ;
+  height: calc(100vh - 20px);
   width: 90vw;
   
   border: 1px solid #e0e0e06b ;
@@ -116,9 +116,16 @@ webit-movements-summary {
   height: 100%;
 }
 
-@media screen and (min-width: 1200px) {
-  .tran-details {
-    // width: 600px;
+@media screen and (max-width: 760px) {
+  .main-page {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    border: none;
   }
-
+  webit-movements {
+    height: 100% ;
+    margin-top: 15px;
+  }
 }
+
