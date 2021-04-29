@@ -3,6 +3,7 @@ import { WebitHomepageService } from './webit-homepage.service';
 import { UserAgentService } from '../../user-agent.service';
 import {AuthService} from '../../auth.service';
 import {Subscription} from 'rxjs';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'webit-homepage',
@@ -14,6 +15,8 @@ export class WebitHomepageComponent implements OnInit {
   showDetails = false;
   choosenTrans: any;
   authenticated = false;
+  fileName= 'ExcelSheet.xlsx';
+
   private subscriptions = new Subscription();
 
   constructor( private userAgentService: UserAgentService, private aut: AuthService) { }
@@ -28,5 +31,17 @@ export class WebitHomepageComponent implements OnInit {
     console.log(movement ,'in home page');
     this.showDetails = !this.showDetails;
     this.choosenTrans = movement;
+  }
+
+  testExcel() {
+    let element = document.getElementById('excel-table');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(wb, ws, 'פירוט תשלומים ביט ציבי שביט');
+    /* save to file */
+    XLSX.writeFile(wb, this.fileName);
   }
 }

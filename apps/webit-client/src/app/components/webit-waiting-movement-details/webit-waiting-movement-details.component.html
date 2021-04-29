@@ -8,3 +8,20 @@
   </div>
   </div>
 </div>
+
+<table id="excel-table">
+  <tr>
+    <th>פירוט</th>
+    <th>סכום</th>
+    <th>תאריך</th>
+    <th>סיבת התשלום</th>
+    <th>תשלום ל</th>
+  </tr>
+  <tr *ngFor="let movment of failterdwaitingMovment">
+    <td>{{ movment.desc }}</td>
+    <td>{{ movment.amount }}</td>
+    <td>{{ movment.date }}</td>
+    <td>{{ movment.purpose }}</td>
+    <td>{{ movment.name }}</td>
+  </tr>
+</table>
