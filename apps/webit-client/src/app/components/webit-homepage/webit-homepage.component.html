@@ -14,9 +14,21 @@
   <div class="view mobile-view" *ngIf="userAgent === 'mobile' || authenticated" [ngClass]="{'mobile-view': userAgent === 'mobile', 'web-view': userAgent === 'desktop'}">
     <h2 class="title">בוקר אור אלכס</h2>
     <div class="nav-bar">
-      <div>
+      <div *ngIf="userAgent=== 'desktop'">
         <button class="nav-btn qr"></button>
-        <span>QR</span>
+        <span>שאלות ותשובות</span>
+      </div>
+      <div *ngIf="userAgent=== 'desktop'">
+        <button class="nav-btn qr"></button>
+        <span>bitcard הזמנת</span>
+      </div>
+      <div *ngIf="userAgent=== 'desktop'">
+        <button class="nav-btn qr"></button>
+        <span>בקש בסריקה</span>
+      </div>
+      <div *ngIf="userAgent=== 'mobile'">
+        <button class="nav-btn qr"></button>
+        <span>QR סרוק קוד </span>
       </div>
       <div>
         <button class="nav-btn ask"></button>
