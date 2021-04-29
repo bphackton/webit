@@ -1,8 +1,8 @@
 <div>
   <div class="search-bar">
-    <input class="search-bar-input" placeholder="חפש העברה🔍" type="search"/>
+    <input class="search-bar-input" placeholder="חפש העברה🔍" [formControl]="searchCtrl" type="search"/>
   </div>
-  <div *ngFor="let movment of waitingMovment">
+  <div *ngFor="let movment of failterdwaitingMovment">
     <webit-movement-details (click)="showTrans.emit(movment)" [movment]="movment"></webit-movement-details>
   </div>
 </div>

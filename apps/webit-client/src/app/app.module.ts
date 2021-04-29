@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { WebitMovementsSummaryComponent } from './components/webit-movements-summary/webit-movements-summary.component';
 import {QRCodeModule} from 'angular2-qrcode';
 import {AuthService} from './auth.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {AuthService} from './auth.service';
         HttpClientModule,
         BrowserModule,
         AppRoutingModule,
-        QRCodeModule
+        QRCodeModule,
+        ReactiveFormsModule
     ],
   providers: [UserAgentService, WebitHomepageService, AuthService],
   bootstrap: [AppComponent]
