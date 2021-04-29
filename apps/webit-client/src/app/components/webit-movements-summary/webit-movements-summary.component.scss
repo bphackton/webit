@@ -4,7 +4,6 @@ webit-movements-summary{
 }
 
 .tran-details {
-    padding-top: 50px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -80,8 +79,3 @@ webit-movements-summary{
     }
   }
 
-  @media screen and (min-width: 1200px) {
-    .tran-details {
-        width: 100%;
-    }
-   }
