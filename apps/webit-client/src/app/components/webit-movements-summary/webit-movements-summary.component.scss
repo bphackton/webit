@@ -1,36 +1,43 @@
 
-.tran-details {
-    // height: 620px;
+webit-movements-summary{
+  padding: 10px;
+}
 
-    margin-top: 50px;
-    height: 60vh;
+.tran-details {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+    // border-radius: 5px;
     background: rgba(44,114,137, 1);
     position: relative;
 
-    div:not(:first-child) {
-      //    placeholder
+
+
+    .status-title-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
     }
 
     .done-icon {
-      position: absolute;
-      top:-7%;
+      // position: absolute;
+      top:5%;
       background-image: url("../../../assets/done.svg");
       height: 57px;
       width: 57px;
       background-size: cover;
       background-repeat: no-repeat;
+      margin-bottom: 5px;
     }
 
     .status-title {
-      position: absolute;
+      // position: absolute;
       background: #1e556a;
       font-size: 25px;
-      top: 10%;
+      top: 15%;
       border-radius: 10px;
       padding: 4px;
       color: white;
@@ -50,17 +57,17 @@
       text-align: center;
       color: white;
       margin-top: 5px;
-      font-size: 15px;
+      font-size: 28px;
 
       &.payment-amount {
         display: flex;
         flex-direction: row-reverse;
         justify-content: center;
-        font-size: 14px;
+        font-size: 28px;
+        font-weight: bold;
       }
       .trans-info-sub {
         display: flex;
-        flex-direction: row-reverse;
         justify-content: space-between;
         padding: 0 20px;
       }
@@ -72,8 +79,3 @@
     }
   }
 
-  @media screen and (min-width: 1200px) {
-    .tran-details {
-        width: 500px;
-    }
-   }
