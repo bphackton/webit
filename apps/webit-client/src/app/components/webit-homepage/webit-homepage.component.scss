@@ -17,15 +17,27 @@
 .view {
   display: flex;
   flex-direction: column;
-  .title {
-    color: white;
-    text-align: right;
-    width:100%;
-    font-family: 'poalim-medium', Arial, Helvetica, sans-serif;
-    font-size: 22px;
-  }
 }
 
+.title {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  h2 {
+    color: white;
+    text-align: right;
+    font-family: 'poalim-medium', Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    margin-right: 30px;
+  }
+}
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px black solid;
+}
 
 .web-view {
   //justify-content: center;
@@ -70,8 +82,8 @@
     position: relative;
     margin-bottom: 5px;
     border: none;
-    &.qr {
-      background-image: url('../../../assets/qr.jpg');
+    &.webit {
+      background-image: url('../../../assets/ic_qr_payment.svg');
       background-size: cover;
     }
 

@@ -15,6 +15,7 @@ webit-movements-summary{
 
 
 
+
     .status-title-wrapper {
       display: flex;
       flex-direction: column;
@@ -39,7 +40,7 @@ webit-movements-summary{
       font-size: 25px;
       top: 15%;
       border-radius: 10px;
-      padding: 4px;
+      padding: 10px;
       color: white;
     }
 
@@ -56,14 +57,15 @@ webit-movements-summary{
       width: 100%;
       text-align: center;
       color: white;
-      margin-top: 5px;
+      margin: 25px 0;
       font-size: 28px;
+
 
       &.payment-amount {
         display: flex;
         flex-direction: row-reverse;
         justify-content: center;
-        font-size: 28px;
+        font-size: 60px;
         font-weight: bold;
       }
       .trans-info-sub {
@@ -77,5 +79,9 @@ webit-movements-summary{
         border-top: 1px solid #e0e0e06b;
         margin: 13px;    }
     }
+  .full-desc {
+    font-weight: bold;
+    text-decoration: underline;
+  }
   }
 
