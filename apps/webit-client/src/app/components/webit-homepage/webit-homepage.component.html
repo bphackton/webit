@@ -12,7 +12,7 @@
   </ng-template>
 
   <div class="view mobile-view" *ngIf="userAgent === 'mobile' || authenticated" [ngClass]="{'mobile-view': userAgent === 'mobile', 'web-view': userAgent === 'desktop'}">
-    <h2 class="title">בוקר אור אלכס</h2>
+    <h2 class="title">בוקר אור ציפי שביט</h2>
     <div class="nav-bar">
       <div *ngIf="userAgent=== 'desktop'">
         <button class="nav-btn qr"></button>
@@ -43,6 +43,7 @@
         <span>שלח</span>
       </div>
     </div>
+    
     <webit-movements (showTrans)=clickedTrans($event)></webit-movements>
   </div>
 

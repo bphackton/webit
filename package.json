@@ -5,7 +5,7 @@
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
-    "start:client": "nx serve webit-client",
+    "start:client": "nx serve webit-client --watch",
     "start:server": "nx serve webit-node",
     "start:auth": "nx serve webit-auth-node",
     "build": "nx build",
