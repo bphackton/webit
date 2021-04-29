@@ -2,16 +2,19 @@
   <div class="tran-details">
     <ng-container *ngIf="choosenTrans">
       <button *ngIf="userAgent==='mobile'" class='back-btn'(click)="clickedTrans()">X</button>
-      <div class="done-icon"></div>
-      <div *ngIf="choosenTrans.tranType === 'additon'" class="status-title">
-        העברה בוצעה
+      <div class="status-title-wrapper">
+        <div class="done-icon"></div>
+        <div *ngIf="choosenTrans.tranType === 'additon'" class="status-title">
+          העברה בוצעה
+        </div>
+        <div *ngIf="choosenTrans.tranType === 'payment'" class="status-title">העברה מחכה</div>
       </div>
-      <div *ngIf="choosenTrans.tranType === 'payment'" class="status-title">העברה מחכה</div>
+      
+     
       <div class="summery-info">
         <div class="trans-info">העברת ל {{choosenTrans.sentTo}}</div>
         <div class="trans-info payment-amount">
-          <span>{{choosenTrans.amount}}</span>
-          <span>ש״ח</span>
+          <span>{{choosenTrans.amount}} ש״ח</span>
         </div>
         <div class="trans-info">{{choosenTrans.purpose}}</div>
       </div>
