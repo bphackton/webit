@@ -72,10 +72,12 @@
     "@nrwl/angular": "^11.6.1",
     "angular2-qrcode": "^2.0.3",
     "express": "4.17.1",
+    "file-saver": "^2.0.5",
     "rxjs": "~6.6.3",
     "socket.io": "^4.0.1",
     "socket.io-client": "^4.0.1",
     "tslib": "^2.0.0",
+    "xlsx": "^0.16.9",
     "zone.js": "^0.10.2"
   }
 }

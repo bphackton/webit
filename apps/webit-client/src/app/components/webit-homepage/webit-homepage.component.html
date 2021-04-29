@@ -28,8 +28,8 @@
         <span>Webit</span>
       </div>
       <div *ngIf="userAgent === 'desktop'">
-        <button class="nav-btn card"></button>
-        <span>כרטיס ביט</span>
+        <button (click)=testExcel() class="nav-btn excel"></button>
+        <span>קובץ אקסל</span>
       </div>
       <div *ngIf="userAgent === 'desktop'">
         <button class="nav-btn ask-qr-payment"></button>
@@ -49,6 +49,4 @@
                                [userAgent]="userAgent"></webit-movements-summary>
     </ng-template>
   </ng-template>
-
-
-</div>
+  </div>
