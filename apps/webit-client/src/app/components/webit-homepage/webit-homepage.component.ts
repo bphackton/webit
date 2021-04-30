@@ -15,7 +15,8 @@ export class WebitHomepageComponent implements OnInit {
   showDetails = false;
   choosenTrans: any;
   authenticated = false;
-  fileName= 'ExcelSheet.xlsx';
+  date = new Date;
+  fileName= `Bit-Transactions-${this.date.getDate()}/${this.date.getUTCMonth()+1}/${this.date.getFullYear()}.xlsx`;
 
   private subscriptions = new Subscription();
 
