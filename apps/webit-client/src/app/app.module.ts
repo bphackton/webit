@@ -15,6 +15,8 @@ import { WebitMovementsSummaryComponent } from './components/webit-movements-sum
 import {QRCodeModule} from 'angular2-qrcode';
 import {AuthService} from './auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WebitPaymentScreenComponent } from './components/webit-payment-screen/webit-payment-screen.component';
+import { PaymentService } from './payment-service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     WebitMovementsListComponent,
     WebitMovementDetailsComponent,
     WebitWaitingMovementDetailsComponent,
-    WebitMovementsSummaryComponent
+    WebitMovementsSummaryComponent,
+    WebitPaymentScreenComponent
   ],
     imports: [
         HttpClientModule,
@@ -34,7 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         QRCodeModule,
         ReactiveFormsModule
     ],
-  providers: [UserAgentService, WebitHomepageService, AuthService],
+  providers: [UserAgentService, WebitHomepageService, AuthService, PaymentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

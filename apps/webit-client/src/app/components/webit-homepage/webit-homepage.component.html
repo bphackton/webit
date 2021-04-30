@@ -11,7 +11,7 @@
         <button class="nav-btn setting"></button>
         <span>הגדרות</span>
       </div>
-      <div>
+      <div (click)=showPaymentScreen()>
         <button class="nav-btn give"></button>
         <span>שלח</span>
       </div>
@@ -45,8 +45,9 @@
       <webit-qr-code></webit-qr-code>
     </ng-template>
     <ng-template #authenticatedView>
-      <webit-movements-summary *ngIf="userAgent=== 'desktop'" [choosenTrans]="choosenTrans"
+      <webit-movements-summary *ngIf="userAgent=== 'desktop' && choosenTrans && !paymentScreen" [choosenTrans]="choosenTrans"
                                [userAgent]="userAgent"></webit-movements-summary>
+      <webit-payment-screen *ngIf="userAgent === 'desktop' && paymentScreen"></webit-payment-screen>
     </ng-template>
   </ng-template>
   </div>

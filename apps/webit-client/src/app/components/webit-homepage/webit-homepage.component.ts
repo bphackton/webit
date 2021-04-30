@@ -11,13 +11,14 @@ import * as XLSX from 'xlsx';
   styleUrls: ['./webit-homepage.component.scss']
 })
 export class WebitHomepageComponent implements OnInit {
+  private subscriptions = new Subscription();
   userAgent: string;
   showDetails = false;
   choosenTrans: any;
   authenticated = false;
   fileName= 'ExcelSheet.xlsx';
+  paymentScreen = false;
 
-  private subscriptions = new Subscription();
 
   constructor( private userAgentService: UserAgentService, private aut: AuthService) { }
 
@@ -26,6 +27,9 @@ export class WebitHomepageComponent implements OnInit {
     this.subscriptions.add(this.aut.isAuthedSubj.subscribe(res => this.authenticated = res));
   }
 
+  showPaymentScreen () {
+    this.paymentScreen = !this.paymentScreen;
+  }
 
   clickedTrans(movement) {
     console.log(movement ,'in home page');
