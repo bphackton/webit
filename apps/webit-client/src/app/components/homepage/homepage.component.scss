@@ -21,18 +21,20 @@
 
 .title {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   h2 {
     color: white;
     text-align: right;
     font-family: 'poalim-medium', Arial, Helvetica, sans-serif;
     font-size: 22px;
-    margin-right: 30px;
+    margin: 7px;
   }
 }
 .user-avatar {
+  background: url("https://www.ezbeoni.co.il/wp-content/uploads/2021/02/%D7%A6%D7%99%D7%A4%D7%99-%D7%A9%D7%91%D7%99%D7%98-450x577.jpg") no-repeat;
+  background-size: cover;
   width: 50px;
   height: 50px;
   border-radius: 50%;
