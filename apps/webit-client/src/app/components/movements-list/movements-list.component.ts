@@ -3,11 +3,11 @@ import {FormControl} from '@angular/forms';
 import {filter, debounceTime, distinctUntilChanged} from 'rxjs/operators';
 
 @Component({
-  selector: 'webit-waiting-movement-details',
-  templateUrl: './webit-waiting-movement-details.component.html',
-  styleUrls: ['./webit-waiting-movement-details.component.scss']
+  selector: 'movements-list',
+  templateUrl: './movements-list.component.html',
+  styleUrls: ['./movements-list.component.scss']
 })
-export class WebitWaitingMovementDetailsComponent implements OnInit, OnChanges {
+export class MovementsListComponent implements OnInit, OnChanges {
   @Input() waitingMovment;
   @Output() showTrans = new EventEmitter();
   failterdwaitingMovment = [];

@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http"
 
 @Injectable()
-export class WebitHomepageService {
+export class HomepageService {
 
     constructor(private http: HttpClient) {}
 

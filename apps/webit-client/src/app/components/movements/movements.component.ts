@@ -1,13 +1,13 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { WebitHomepageService } from '../webit-homepage/webit-homepage.service';
+import { HomepageService } from '../homepage/homepage.service';
 import { UserAgentService } from '../../user-agent.service';
 
 @Component({
-  selector: 'webit-movements',
-  templateUrl: './webit-movements.component.html',
-  styleUrls: ['./webit-movements.component.scss']
+  selector: 'movements',
+  templateUrl: './movements.component.html',
+  styleUrls: ['./movements.component.scss']
 })
-export class WebitMovementsComponent implements OnInit {
+export class MovementsComponent implements OnInit {
 
   @Output() showTrans = new EventEmitter()
 
@@ -66,7 +66,7 @@ export class WebitMovementsComponent implements OnInit {
   completedMovmentsList: Object;
   showDetails: any = false;
 
-  constructor(private webitService: WebitHomepageService, private userAgentService: UserAgentService) { }
+  constructor(private webitService: HomepageService, private userAgentService: UserAgentService) { }
 
   private getMovements() {
     this.webitService.getAwaitingMovments().subscribe(

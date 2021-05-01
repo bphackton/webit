@@ -37,16 +37,16 @@
       </div>
     </div>
 
-    <webit-movements (showTrans)=clickedTrans($event)></webit-movements>
+    <movements (showTrans)=clickedTrans($event)></movements>
   </div>
 
   <ng-template [ngIf]="userAgent === 'desktop'">
     <ng-template [ngIf]="!authenticated" [ngIfElse]="authenticatedView">
-      <webit-qr-code></webit-qr-code>
+      <qr-code></qr-code>
     </ng-template>
     <ng-template #authenticatedView>
-      <webit-movements-summary *ngIf="userAgent=== 'desktop'" [choosenTrans]="choosenTrans"
-                               [userAgent]="userAgent"></webit-movements-summary>
+      <movements-summary *ngIf="userAgent=== 'desktop'" [choosenTrans]="choosenTrans"
+                               [userAgent]="userAgent"></movements-summary>
     </ng-template>
   </ng-template>
   </div>

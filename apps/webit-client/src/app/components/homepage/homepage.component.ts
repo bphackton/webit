@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { WebitHomepageService } from './webit-homepage.service';
+import { HomepageService } from './homepage.service';
 import { UserAgentService } from '../../user-agent.service';
 import {AuthService} from '../../auth.service';
 import {Subscription} from 'rxjs';
 import * as XLSX from 'xlsx';
 
 @Component({
-  selector: 'webit-homepage',
-  templateUrl: './webit-homepage.component.html',
-  styleUrls: ['./webit-homepage.component.scss']
+  selector: 'homepage',
+  templateUrl: './homepage.component.html',
+  styleUrls: ['./homepage.component.scss']
 })
-export class WebitHomepageComponent implements OnInit {
+export class HomepageComponent implements OnInit {
   userAgent: string;
   showDetails = false;
   choosenTrans: any;

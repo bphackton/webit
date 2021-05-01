@@ -3,11 +3,11 @@ import {AuthService} from '../../auth.service';
 import {Subscription} from 'rxjs';
 
 @Component({
-  selector: 'webit-qr-code',
-  templateUrl: './webit-qr-code.component.html',
-  styleUrls: ['./webit-qr-code.component.scss']
+  selector: 'qr-code',
+  templateUrl: './qr-code.component.html',
+  styleUrls: ['./qr-code.component.scss']
 })
-export class WebitQrCodeComponent implements OnInit, OnDestroy {
+export class QrCodeComponent implements OnInit, OnDestroy {
   qrcode: string;
   reload: boolean;
   private subscriptions = new Subscription();

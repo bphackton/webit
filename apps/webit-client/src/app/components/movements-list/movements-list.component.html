@@ -4,7 +4,7 @@
   </div>
   <div class="movements-list">
   <div *ngFor="let movment of failterdwaitingMovment">
-    <webit-movement-details (click)="showTrans.emit(movment)" [movment]="movment"></webit-movement-details>
+    <movement-details (click)="showTrans.emit(movment)" [movment]="movment"></movement-details>
   </div>
   </div>
 </div>
