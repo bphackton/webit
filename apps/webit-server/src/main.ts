@@ -8,7 +8,7 @@ import * as express from 'express';
 const app = express();
 
 app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to webit-node!' });
+  res.send({ message: 'Welcome to webit-server!' });
 });
 
 const port = process.env.port || 3333;

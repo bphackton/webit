@@ -5,7 +5,7 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "parserOptions": {
-        "project": ["apps/webit-auth-node/tsconfig.*?.json"]
+        "project": ["apps/webit-server/tsconfig.*?.json"]
       },
       "rules": {}
     },

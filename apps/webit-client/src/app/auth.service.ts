@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, interval, Observable, Subject, timer} from 'rxjs';
 import {startWith, takeUntil} from 'rxjs/operators';
-import {WebSocketEvents} from '../../../webit-node/src/app/web-socket-events';
+import {WebSocketEvents} from '../../../webit-server/src/app/web-socket-events';
 import { io } from 'socket.io-client';
 
 @Injectable()
