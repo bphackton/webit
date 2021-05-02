@@ -1,0 +1,55 @@
+<!-- Need here to alert if mobile or web if mobile make it look like mobile-->
+
+<!-- https://www.ezbeoni.co.il/wp-content/uploads/2021/02/%D7%A6%D7%99%D7%A4%D7%99-%D7%A9%D7%91%D7%99%D7%98-450x577.jpg
+ -->
+<div class="main-page" [ngClass]="{'mobile': userAgent === 'mobile'}">
+  <div class="view mobile-view" *ngIf="userAgent === 'mobile' || authenticated"
+       [ngClass]="{'mobile-view': userAgent === 'mobile', 'web-view': userAgent === 'desktop'}">
+    <div class="title">
+      <span class="user-avatar"></span>
+      <h2>בוקר אור ציפי שביט</h2>
+    </div>
+    <div class="nav-bar">
+      <div *ngIf="userAgent === 'desktop'">
+        <button class="nav-btn setting"></button>
+        <span>הגדרות</span>
+      </div>
+      <div>
+        <button class="nav-btn give"></button>
+        <span>שלח</span>
+      </div>
+      <div>
+        <button class="nav-btn group"></button>
+        <span>קבוצה</span>
+      </div>
+      <div>
+        <button class="nav-btn ask"></button>
+        <span>בקש</span>
+      </div>
+      <div *ngIf="userAgent === 'mobile'">
+        <button class="nav-btn webit"></button>
+        <span>Webit</span>
+      </div>
+      <div *ngIf="userAgent === 'desktop'">
+        <button (click)=testExcel() class="nav-btn excel"></button>
+        <span>קובץ אקסל</span>
+      </div>
+      <div *ngIf="userAgent === 'desktop'">
+        <button class="nav-btn ask-qr-payment"></button>
+        <span>העבר בסריקה</span>
+      </div>
+    </div>
+
+    <movements (showTrans)=clickedTrans($event)></movements>
+  </div>
+
+  <ng-template [ngIf]="userAgent === 'desktop'">
+    <ng-template [ngIf]="!authenticated" [ngIfElse]="authenticatedView">
+      <qr-code></qr-code>
+    </ng-template>
+    <ng-template #authenticatedView>
+      <movements-summary *ngIf="userAgent=== 'desktop'" [choosenTrans]="choosenTrans"
+                               [userAgent]="userAgent"></movements-summary>
+    </ng-template>
+  </ng-template>
+  </div>

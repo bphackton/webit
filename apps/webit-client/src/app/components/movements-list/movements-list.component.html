@@ -1,0 +1,27 @@
+<div>
+  <div class="search-bar">
+    <input class="search-bar-input" placeholder="חפש העברה🔍" [formControl]="searchCtrl" type="search"/>
+  </div>
+  <div class="movements-list">
+  <div *ngFor="let movment of failterdwaitingMovment">
+    <movement-details (click)="showTrans.emit(movment)" [movment]="movment"></movement-details>
+  </div>
+  </div>
+</div>
+
+<table id="excel-table">
+  <tr>
+    <th>פירוט</th>
+    <th>סכום</th>
+    <th>תאריך</th>
+    <th>סיבת התשלום</th>
+    <th>תשלום ל</th>
+  </tr>
+  <tr *ngFor="let movment of failterdwaitingMovment">
+    <td>{{ movment.desc }}</td>
+    <td>{{ movment.amount }}</td>
+    <td>{{ movment.date }}</td>
+    <td>{{ movment.purpose }}</td>
+    <td>{{ movment.name }}</td>
+  </tr>
+</table>

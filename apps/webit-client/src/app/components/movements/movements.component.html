@@ -1,0 +1,8 @@
+<div class="movements" *ngIf="!showDetails || userAgent === 'desktop'">
+  <movements-list (showTrans)=clickedTrans($event)
+                                  [waitingMovment]="awaitingMovmentsList"></movements-list>
+</div>
+
+<movements-summary [choosenTrans]="choosenTrans" [userAgent]="userAgent" (showTrans)=clickedTrans(null)
+                         *ngIf="showDetails && userAgent === 'mobile'"></movements-summary>
+

@@ -1,0 +1,16 @@
+<div class="movment">
+    <img class="movment-avatar" [src]="'https://robohash.org/' + movment.name"/>
+    <ul class="movment-detils">
+        <li class="name">{{movment.name}}</li>
+        <li class="purpose">{{movment.purpose}}</li>
+        <li class="date">העברה בוצעה ב {{movment.date | date: 'dd.MM.yy'}}</li>
+    </ul>
+    <div class="movment-amount">
+        <div>₪{{movment.amount}}</div>
+        <div class="green-movment movement-icon" *ngIf="movment.tranType === 'additon'; else sendMethod">+</div>
+        <ng-template #sendMethod>
+            <div class="red-movment movement-icon">-</div>
+        </ng-template>
+    </div>
+</div>
+<hr>
