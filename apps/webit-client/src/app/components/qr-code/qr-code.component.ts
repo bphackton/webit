@@ -3,7 +3,7 @@ import {AuthService} from '../../auth.service';
 import {Subscription} from 'rxjs';
 
 @Component({
-  selector: 'qr-code',
+  selector: 'webit-qr-code',
   templateUrl: './qr-code.component.html',
   styleUrls: ['./qr-code.component.scss']
 })
@@ -11,7 +11,7 @@ export class QrCodeComponent implements OnInit, OnDestroy {
   qrcode: string;
   reload: boolean;
   private subscriptions = new Subscription();
-  
+
   constructor(private auth: AuthService) {
     this.subscriptions.add(auth.requestToken().subscribe(
         next => (this.qrcode = next),
@@ -25,7 +25,7 @@ export class QrCodeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
   }
-  
+
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
   }
