@@ -7,7 +7,10 @@
        [ngClass]="{'mobile-view': userAgent === 'mobile', 'web-view': userAgent === 'desktop'}">
     <div class="title">
       <span class="user-avatar"></span>
-      <h2>בוקר אור ציפי שביט</h2>
+      <div>
+        <span>בוקר אור</span> 
+        <h2>ציפי שביט</h2>
+      </div>
     </div>
     <div class="nav-bar">
       <div *ngIf="userAgent === 'desktop'">
@@ -39,6 +42,15 @@
         <span>העבר בסריקה</span>
       </div>
     </div>
+
+    <div class="sum-wrapper">
+      <div class="sum success">
+        קבלתי ₪<span class="sum-val">{{ 50000 | number }}</span>
+      </div>
+      <div class="sum warning">
+       העברתי ₪<span class="sum-val">{{ 50000 | number }}</span>
+      </div>
+    </div> 
 
     <movements (showTrans)=clickedTrans($event)></movements>
   </div>
