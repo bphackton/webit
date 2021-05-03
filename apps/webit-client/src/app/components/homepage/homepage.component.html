@@ -45,7 +45,7 @@
 
   <ng-template [ngIf]="userAgent === 'desktop'">
     <ng-template [ngIf]="!authenticated" [ngIfElse]="authenticatedView">
-      <qr-code></qr-code>
+      <webit-qr-code></webit-qr-code>
     </ng-template>
     <ng-template #authenticatedView>
       <movements-summary *ngIf="userAgent=== 'desktop'" [choosenTrans]="choosenTrans"
