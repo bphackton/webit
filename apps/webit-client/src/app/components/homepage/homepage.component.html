@@ -52,14 +52,14 @@
 
       <div class="sum-wrapper">
         <div class="sum success">
-          קבלתי ₪<span class="sum-val">{{ 50000 | number }}</span>
+          קבלתי ₪<span class="sum-val">{{ addSum }}</span>
         </div>
         <div class="sum warning">
-          העברתי ₪<span class="sum-val">{{ 50000 | number }}</span>
+          העברתי ₪<span class="sum-val">{{ paySum }}</span>
         </div>
       </div>
 
-      <movements (showTrans)=clickedTrans($event)></movements>
+      <movements (showTrans)=clickedTrans($event) (showSums)="showSums($event)"></movements>
     </div>
     <ng-template [ngIf]="userAgent === 'desktop'">
       <ng-template [ngIf]="!authenticated" [ngIfElse]="authenticatedView">

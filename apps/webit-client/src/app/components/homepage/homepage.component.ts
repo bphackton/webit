@@ -18,6 +18,8 @@ export class HomepageComponent implements OnInit, OnDestroy {
   date = new Date;
   qrReaderActive = false;
   fileName= `Bit-Transactions-${this.date.getDate()}/${this.date.getUTCMonth()+1}/${this.date.getFullYear()}.xlsx`;
+  addSum: number;
+  paySum: number;
 
   private subscriptions = new Subscription();
 
@@ -32,6 +34,11 @@ export class HomepageComponent implements OnInit, OnDestroy {
     console.log(movement ,'in home page');
     this.showDetails = !this.showDetails;
     this.choosenTrans = movement;
+  }
+
+  showSums(sums) {
+    this.addSum = sums.addSum;
+    this.paySum = sums.paySum;
   }
 
   testExcel() {

@@ -10,6 +10,7 @@ import { UserAgentService } from '../../user-agent.service';
 export class MovementsComponent implements OnInit {
 
   @Output() showTrans = new EventEmitter()
+  @Output() showSums = new EventEmitter()
 
 
   // waitingMovmentsList = [
@@ -65,6 +66,7 @@ export class MovementsComponent implements OnInit {
   awaitingMovmentsList: Object;
   completedMovmentsList: Object;
   showDetails: any = false;
+  tranSumm: { paySum: number; addSum: number };
 
   constructor(private webitService: HomepageService, private userAgentService: UserAgentService) { }
 
@@ -73,6 +75,7 @@ export class MovementsComponent implements OnInit {
       res => {
         console.log(res)
         this.awaitingMovmentsList = res;
+        this.calcSums(res);
       }
     )
     this.webitService.getCompletedMovments().subscribe(
@@ -87,6 +90,26 @@ export class MovementsComponent implements OnInit {
   ngOnInit(): void {
     this.userAgent = this.userAgentService.checkDevice()
       this.getMovements()
+  }
+
+  calcSums(movements) {
+    let additionArr = movements.filter((movement) => movement.tranType === "additon");
+    let paymentArr = movements.filter((movement) => movement.tranType === "payment");
+    let additonSum = 0;
+    let paymentSum = 0;
+
+    additionArr.forEach((ev) => {
+      additonSum += ev.amount;
+    })
+
+    paymentArr.forEach((ev) => {
+      paymentSum += ev.amount;
+    })
+    this.tranSumm = {
+      addSum: additonSum,
+      paySum: paymentSum
+    }
+    this.showSums.emit(this.tranSumm);
   }
 
   clickedTrans(movement) {
