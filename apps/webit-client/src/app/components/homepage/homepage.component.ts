@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { HomepageService } from './homepage.service';
 import { UserAgentService } from '../../user-agent.service';
 import {AuthService} from '../../auth.service';
@@ -10,12 +10,13 @@ import * as XLSX from 'xlsx';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent implements OnInit, OnDestroy {
   userAgent: string;
   showDetails = false;
   choosenTrans: any;
   authenticated = false;
   date = new Date;
+  qrReaderActive = false;
   fileName= `Bit-Transactions-${this.date.getDate()}/${this.date.getUTCMonth()+1}/${this.date.getFullYear()}.xlsx`;
 
   private subscriptions = new Subscription();
@@ -26,7 +27,6 @@ export class HomepageComponent implements OnInit {
     this.userAgent = this.userAgentService.checkDevice();
     this.subscriptions.add(this.aut.isAuthedSubj.subscribe(res => this.authenticated = res));
   }
-
 
   clickedTrans(movement) {
     console.log(movement ,'in home page');
@@ -44,5 +44,29 @@ export class HomepageComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'פירוט תשלומים ביט ציבי שביט');
     /* save to file */
     XLSX.writeFile(wb, this.fileName);
+  }
+
+  camerasNotFound(e) {
+    confirm(e);
+    this.qrReaderActive = false;
+  }
+
+  scanSuccess(e) {
+    alert(e);
+  }
+  scanFailure(e) {
+    alert(e);
+  }
+  scanError(e) {
+    alert(e);
+  }
+  scanComplete(e) {
+    alert(e);
+  }
+
+  ngOnDestroy() {
+    if (this.subscriptions) {
+      this.subscriptions.unsubscribe();
+    }
   }
 }
