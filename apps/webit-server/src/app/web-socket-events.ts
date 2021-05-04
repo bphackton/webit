@@ -10,5 +10,8 @@ export enum WebSocketEvents {
   TokenRequest = 'tokenRequest', // received from clients to obtain token
   Token = 'token', // emitted by server with generated token
   Paired = 'paired',
-  Suspend = 'suspend'
+  Suspend = 'suspend',
+  Authenticated = 'authenticated',
+  Authenticate = 'authenticate',
+
 }

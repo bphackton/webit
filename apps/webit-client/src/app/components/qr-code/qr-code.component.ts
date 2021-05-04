@@ -13,14 +13,9 @@ export class QrCodeComponent implements OnInit, OnDestroy {
   private subscriptions = new Subscription();
 
   constructor(private auth: AuthService) {
-    this.subscriptions.add(auth.requestToken().subscribe(
-        next => (this.qrcode = next),
-        error => console.log('wc-auth: ', error),
-        () => {
-          console.log('completing token request subscription.');
-          this.reload = true;
-        }
-    ));
+    this.subscriptions.add(auth.tokenSubj.subscribe(res => {
+      this.qrcode = res;
+    }));
   }
 
   ngOnInit(): void {

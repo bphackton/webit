@@ -38,13 +38,25 @@ const getAuthToken = (socket) => {
   return tokenStr;
 };
 
+const isValidAuthToken = (socket: Socket, token: Token) => {
+  const t = authTokens.get(socket.id);
+  return t.token === token.token && t.expires > Date.now() - 60 * 1000; // 1 minute
+};
+
 io.on(WebSocketEvents.Connection, (socket: Socket) => {
   console.log('connection init: ', socket.id);
+
   socket.on(WebSocketEvents.TokenRequest, () => {
     socket.emit(WebSocketEvents.Token, getAuthToken(socket));
   });
+
   socket.on(WebSocketEvents.Disconnect, () => {
     console.log('socket disconnect: ', socket.id);
+  });
+
+
+  socket.on(WebSocketEvents.Authenticate, () => {
+    console.log('socket Authenticate: ', socket.id);
   });
 });
 
