@@ -60,15 +60,20 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   scanSuccess(e) {
     alert(e);
+    this.qrReaderActive = false;
   }
   scanFailure(e) {
-    alert(e);
+    // alert(e);
+    console.log(e);
+    // this.qrReaderActive = false;
   }
   scanError(e) {
-    alert(e);
+    console.log(e);
+    //this.qrReaderActive = false;
   }
   scanComplete(e) {
     alert(e);
+    this.qrReaderActive = false;
   }
 
   ngOnDestroy() {

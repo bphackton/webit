@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, interval, Observable, Subject, timer} from 'rxjs';
-import {startWith, takeUntil} from 'rxjs/operators';
-import {WebSocketEvents} from '../../../webit-server/src/app/web-socket-events';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { WebSocketEvents } from '../../../webit-server/src/app/web-socket-events';
 import { io } from 'socket.io-client';
 
 @Injectable()
@@ -27,11 +26,15 @@ export class AuthService {
         this.tokenSubj.next(token);
       });
 
-      this.socket.on(WebSocketEvents.Authenticated, (token: boolean) => {
-        this.isAuthedSubj.next(true);
+      this.socket.on(WebSocketEvents.Authenticated, (authenticated: boolean) => {
+        this.isAuthedSubj.next(authenticated);
       });
 
     });
+  }
+
+  public authenticate(token) {
+    this.socket.emit(WebSocketEvents.Authenticate, token);
   }
 
 }

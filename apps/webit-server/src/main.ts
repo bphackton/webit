@@ -54,13 +54,11 @@ io.on(WebSocketEvents.Connection, (socket: Socket) => {
     console.log('socket disconnect: ', socket.id);
   });
 
-
-  socket.on(WebSocketEvents.Authenticate, () => {
+  socket.on(WebSocketEvents.Authenticate, (token: Token) => {
     console.log('socket Authenticate: ', socket.id);
+    socket.emit(WebSocketEvents.Authenticated, isValidAuthToken(socket, token));
   });
 });
-
-
 
 app.use(express.static(config.get('staticFolder'), {index: false}));
 let content;
