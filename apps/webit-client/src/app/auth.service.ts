@@ -6,7 +6,7 @@ import { io } from 'socket.io-client';
 @Injectable()
 export class AuthService {
   private socket;
-  isAuthedSubj = new BehaviorSubject<boolean>(true);
+  isAuthedSubj = new BehaviorSubject<boolean>(false);
   public tokenSubj = new Subject<string>();
 
   constructor() {

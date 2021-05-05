@@ -70,6 +70,8 @@ export class HomepageComponent implements OnInit, OnDestroy {
   scanError(e) {
     console.log(e);
     //this.qrReaderActive = false;
+    const sign = prompt('enter qr auth');
+    this.aut.authenticate(sign);
   }
   scanComplete(e) {
     alert(e);

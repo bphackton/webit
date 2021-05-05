@@ -55,8 +55,9 @@ io.on(WebSocketEvents.Connection, (socket: Socket) => {
   });
 
   socket.on(WebSocketEvents.Authenticate, (token: Token) => {
-    console.log('socket Authenticate: ', socket.id);
-    socket.emit(WebSocketEvents.Authenticated, isValidAuthToken(socket, token));
+    const auth = isValidAuthToken(socket, token);
+    console.log('socket Authenticate: ', `socket.id: ${socket.id}, valid: ${auth}`);
+    socket.emit(WebSocketEvents.Authenticated, true);
   });
 });
 
