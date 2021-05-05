@@ -14,6 +14,7 @@ export class QrCodeComponent implements OnInit, OnDestroy {
 
   constructor(private auth: AuthService) {
     this.subscriptions.add(auth.tokenSubj.subscribe(res => {
+      console.log('qrcode', res);
       this.qrcode = res;
     }));
   }
