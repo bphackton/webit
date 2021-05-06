@@ -14,7 +14,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   userAgent: string;
   showDetails = false;
   choosenTrans: any;
-  authenticated = false;
+  authenticated: boolean;
   date = new Date;
   qrReaderActive = false;
   fileName= `Bit-Transactions-${this.date.getDate()}/${this.date.getUTCMonth()+1}/${this.date.getFullYear()}.xlsx`;
@@ -27,7 +27,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userAgent = this.userAgentService.checkDevice();
-    this.subscriptions.add(this.aut.isAuthedSubj.subscribe(res => this.authenticated = res));
+    this.subscriptions.add(this.aut.isAuthedSubj.subscribe(authenticated => this.authenticated = authenticated));
   }
 
   clickedTrans(movement) {
@@ -54,7 +54,10 @@ export class HomepageComponent implements OnInit, OnDestroy {
   }
 
   camerasNotFound(e) {
-    confirm(e);
+    // confirm(e);
+    // this.qrReaderActive = false;
+    const sign = prompt('enter qr auth');
+    this.aut.authenticate(sign);
     this.qrReaderActive = false;
   }
 

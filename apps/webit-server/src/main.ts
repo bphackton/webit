@@ -33,32 +33,44 @@ const getAuthToken = (socket) => {
   for (let i = 0; i < 100; i++) {
     tokenStr += chars.charAt(Math.floor(Math.random() * chars.length));
   }
-  const t = { token: tokenStr, expires: Date.now() };
-  authTokens.set(socket.id, t);
-  return tokenStr;
+  const token: Token = { token: tokenStr, expires: Date.now() };
+  authTokens.set(socket.id, token);
+  return token;
 };
 
 const isValidAuthToken = (socket: Socket, token: Token) => {
+  let result = false;
   const t = authTokens.get(socket.id);
-  return t.token === token.token && t.expires > Date.now() - 60 * 1000; // 1 minute
+  if (t) {
+    result = t.token === token.token && t.expires > Date.now() - 60 * 1000; // 1 minute
+  }
+  return result;
 };
 
 io.on(WebSocketEvents.Connection, (socket: Socket) => {
   console.log('connection init: ', socket.id);
 
   socket.on(WebSocketEvents.TokenRequest, () => {
-    socket.emit(WebSocketEvents.Token, getAuthToken(socket));
+    console.log('socket on TokenRequest', `socket.id: ${socket.id}`);
+    socket.emit(WebSocketEvents.Token, socket.id);
+  });
+
+  socket.on(WebSocketEvents.ValidateToken, (token: Token) => {
+    const isValid = isValidAuthToken(socket, token);
+    console.log('socket on ValidateToken', `socket.id: ${socket.id} is valid - ${isValid}`);
+    socket.emit(WebSocketEvents.ValidityStatus, isValid);
+  });
+
+  socket.on(WebSocketEvents.Authenticate, (paringSocketId) => {
+    console.log('socket Authenticate: ', `socket.id: ${socket.id}, token: ${paringSocketId}`);
+    const token: Token = getAuthToken(paringSocketId);
+    socket.to(paringSocketId).emit(WebSocketEvents.Paired, token);
   });
 
   socket.on(WebSocketEvents.Disconnect, () => {
     console.log('socket disconnect: ', socket.id);
   });
 
-  socket.on(WebSocketEvents.Authenticate, (token: Token) => {
-    const auth = isValidAuthToken(socket, token);
-    console.log('socket Authenticate: ', `socket.id: ${socket.id}, valid: ${auth}`);
-    socket.emit(WebSocketEvents.Authenticated, true);
-  });
 });
 
 app.use(express.static(config.get('staticFolder'), {index: false}));

@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {ZXingScannerModule} from '@zxing/ngx-scanner';
+import {CacheService} from './cache.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import {ZXingScannerModule} from '@zxing/ngx-scanner';
           registrationStrategy: 'registerWhenStable:30000'
         })
     ],
-  providers: [UserAgentService, HomepageService, AuthService],
+  providers: [UserAgentService, HomepageService, AuthService, CacheService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
