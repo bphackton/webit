@@ -8,3 +8,14 @@
     width: calc(75vw - 360px);
     height: 640px;
 }
+
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    color: white;
+    text-align: center;
+  }
+}
