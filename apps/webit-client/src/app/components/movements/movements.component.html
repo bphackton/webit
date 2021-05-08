@@ -1,3 +1,5 @@
+<div clas="trans-titles">
+</div>
 <div class="movements" *ngIf="!showDetails || userAgent === 'desktop'">
   <movements-list (showTrans)=clickedTrans($event)
                   [waitingMovment]="awaitingMovmentsList"></movements-list>

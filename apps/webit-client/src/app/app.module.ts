@@ -13,11 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovementsSummaryComponent } from './components/movements-summary/movements-summary.component';
 import {QRCodeModule} from 'angular2-qrcode';
 import {AuthService} from './auth.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {ZXingScannerModule} from '@zxing/ngx-scanner';
 import {CacheService} from './cache.service';
+import { MainSideViewComponent } from './components/main-side-view/main-side-view.component';
 
 @NgModule({
   declarations: [
@@ -27,22 +28,24 @@ import {CacheService} from './cache.service';
     QrCodeComponent,
     MovementsListComponent,
     MovementDetailsComponent,
-    MovementsSummaryComponent
+    MovementsSummaryComponent,
+    MainSideViewComponent
   ],
-    imports: [
-        HttpClientModule,
-        BrowserModule,
-        AppRoutingModule,
-        QRCodeModule,
-        ReactiveFormsModule,
-        ZXingScannerModule,
-        ServiceWorkerModule.register('ngsw-worker.js', {
-          enabled: environment.production,
-          // Register the ServiceWorker as soon as the app is stable
-          // or after 30 seconds (whichever comes first).
-          registrationStrategy: 'registerWhenStable:30000'
-        })
-    ],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    AppRoutingModule,
+    QRCodeModule,
+    ReactiveFormsModule,
+    ZXingScannerModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
+    FormsModule
+  ],
   providers: [UserAgentService, HomepageService, AuthService, CacheService],
   bootstrap: [AppComponent]
 })

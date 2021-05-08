@@ -15,6 +15,6 @@ export class MovementsSummaryComponent implements OnInit {
   }
 
   clickedTrans() {
-    this.showTrans.emit()
+    this.showTrans.emit('summery')
   }
 }
