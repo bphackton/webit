@@ -20,6 +20,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   fileName= `Bit-Transactions-${this.date.getDate()}/${this.date.getUTCMonth()+1}/${this.date.getFullYear()}.xlsx`;
   addSum: number;
   paySum: number;
+  status = null;
 
   private subscriptions = new Subscription();
 
@@ -34,6 +35,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
     console.log(movement ,'in home page');
     this.showDetails = !this.showDetails;
     this.choosenTrans = movement;
+    this.changeStatus('summery');
   }
 
   showSums(sums) {
@@ -85,5 +87,11 @@ export class HomepageComponent implements OnInit, OnDestroy {
     if (this.subscriptions) {
       this.subscriptions.unsubscribe();
     }
+  }
+
+  changeStatus(status: string) {
+    this.status = status;
+    console.log(status);
+
   }
 }

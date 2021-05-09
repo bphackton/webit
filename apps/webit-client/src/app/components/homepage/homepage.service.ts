@@ -10,9 +10,9 @@ export class HomepageService {
         const route = 'https://webitapimanagment.azure-api.net/awaiting';
         return this.http.request('GET', route)
     }
-  getCompletedMovments() {
-    const route = 'https://webitapimanagment.azure-api.net/completed';
-    return this.http.request('GET', route)
-  }
+  // getCompletedMovments() {
+  //   const route = 'https://webitapimanagment.azure-api.net/completed';
+  //   return this.http.request('GET', route)
+  // }
 
 }
