@@ -1,5 +1,4 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { HomepageService } from './homepage.service';
 import { UserAgentService } from '../../user-agent.service';
 import {AuthService} from '../../auth.service';
 import {Subscription} from 'rxjs';
@@ -56,7 +55,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   }
 
   camerasNotFound(e) {
-    // alert(e);
+    console.log('camerasNotFound', e);
     // confirm(e);
     this.qrReaderActive = false;
     const sign = prompt('enter qr auth');
@@ -64,23 +63,18 @@ export class HomepageComponent implements OnInit, OnDestroy {
     // this.qrReaderActive = false;
   }
 
-  scanSuccess(e) {
-    alert(e);
-    this.qrReaderActive = false;
+  scanSuccess(data) {
+    this.aut.authenticate(data);
   }
   scanFailure(e) {
-    alert(e);
-    console.log(e);
+    console.log('scanFailure', e);
     // this.qrReaderActive = false;
   }
   scanError(e) {
-    console.log(e);
-    //this.qrReaderActive = false;
-    // const sign = prompt('enter qr auth');
-    // this.aut.authenticate(sign);
+    console.log('scanError', e);
   }
   scanComplete(e) {
-    alert(e);
+    console.log('scanComplete', e);
     this.qrReaderActive = false;
   }
 
