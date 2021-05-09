@@ -14,7 +14,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   userAgent: string;
   showDetails = false;
   choosenTrans: any;
-  authenticated: boolean;
+  authenticated = false;
   date = new Date;
   qrReaderActive = false;
   fileName= `Bit-Transactions-${this.date.getDate()}/${this.date.getUTCMonth()+1}/${this.date.getFullYear()}.xlsx`;
@@ -56,11 +56,12 @@ export class HomepageComponent implements OnInit, OnDestroy {
   }
 
   camerasNotFound(e) {
+    // alert(e);
     // confirm(e);
-    // this.qrReaderActive = false;
+    this.qrReaderActive = false;
     const sign = prompt('enter qr auth');
     this.aut.authenticate(sign);
-    this.qrReaderActive = false;
+    // this.qrReaderActive = false;
   }
 
   scanSuccess(e) {
@@ -68,15 +69,15 @@ export class HomepageComponent implements OnInit, OnDestroy {
     this.qrReaderActive = false;
   }
   scanFailure(e) {
-    // alert(e);
+    alert(e);
     console.log(e);
     // this.qrReaderActive = false;
   }
   scanError(e) {
     console.log(e);
     //this.qrReaderActive = false;
-    const sign = prompt('enter qr auth');
-    this.aut.authenticate(sign);
+    // const sign = prompt('enter qr auth');
+    // this.aut.authenticate(sign);
   }
   scanComplete(e) {
     alert(e);

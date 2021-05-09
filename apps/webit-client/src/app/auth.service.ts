@@ -16,7 +16,6 @@ export class AuthService {
     constructor(private cache: CacheService) {
         this.initSocket();
         this.token = cache.get(this.tokenKey);
-        this.isAuthedSubj.next(this.token != null);
     }
 
     private initSocket() {
