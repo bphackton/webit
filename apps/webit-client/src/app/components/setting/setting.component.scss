@@ -1,0 +1,54 @@
+.setting-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 18px;
+
+  hr {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #e0e0e06b;
+    margin: 13px;
+  }
+.setting-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .icon {
+    height: 50px;
+    width: 50px;
+    background: url("../../../assets/ic_transfer.svg");
+    background-repeat: no-repeat;
+    margin: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+}
+
+  .texts-section {
+    width: 100%;
+  }
+  .user-avatar {
+    background: url('https://www.ezbeoni.co.il/wp-content/uploads/2021/02/%D7%A6%D7%99%D7%A4%D7%99-%D7%A9%D7%91%D7%99%D7%98-450x577.jpg') no-repeat;
+    background-size: cover;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+
+
+  }
+
+}
+
+.pencil-icon {
+  height: 20px;
+  width: 20px;
+  background: url("../../../assets/pencil.svg");
+  background-repeat: no-repeat;
+  margin: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+}
