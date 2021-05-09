@@ -10,12 +10,49 @@
   background: rgba(44,114,137, 1);
   position: relative;
   .enter-det-modal {
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: white;
+    }
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     height: 40%;
     .desc-area {
       height: 80%;
+    }
+    input {
+      color: #fff;
+      width: 100%;
+      padding: 10px;
+      direction: rtl;
+      border-radius: 25px;
+      font-size: 20px;
+      background-color: #e0e0e06b;
+      margin-top: 15px;
+      border: 1px white solid;
+    }
+    textarea {
+      color: #fff;
+      width: 100%;
+      padding: 10px;
+      direction: rtl;
+      border-radius: 25px;
+      font-size: 20px;
+      background-color: #e0e0e06b;
+      margin-top: 15px;
+      border: 1px white solid;
+    }
+    button {
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 20px;
+      width: 200px;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
     }
   }
   movements-summary {

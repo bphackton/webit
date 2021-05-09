@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import {ZXingScannerModule} from '@zxing/ngx-scanner';
 import {CacheService} from './cache.service';
 import { MainSideViewComponent } from './components/main-side-view/main-side-view.component';
+import { SettingComponent } from './components/setting/setting.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MainSideViewComponent } from './components/main-side-view/main-side-vie
     MovementsListComponent,
     MovementDetailsComponent,
     MovementsSummaryComponent,
-    MainSideViewComponent
+    MainSideViewComponent,
+    SettingComponent
   ],
   imports: [
     HttpClientModule,

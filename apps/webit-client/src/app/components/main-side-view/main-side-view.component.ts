@@ -10,9 +10,9 @@ export class MainSideViewComponent implements OnInit {
   @Input() userAgent;
   @Input() choosenTrans;
   transfer = {
-    name: null,
-    amount: null,
-    desc: null
+    name: '',
+    amount: '',
+    desc: ''
   };
 
   constructor() { }
