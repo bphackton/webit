@@ -45,7 +45,7 @@
           <span>יבוא לאקסל</span>
         </div>
         <div *ngIf="userAgent === 'desktop'">
-          <button class="nav-btn ask-qr-payment"></button>
+          <button (click)="changeStatus('money-transfer')" class="nav-btn ask-qr-payment"></button>
           <span>העבר בסריקה</span>
         </div>
       </div>
@@ -66,8 +66,7 @@
         <webit-qr-code></webit-qr-code>
       </ng-template>
       <ng-template #authenticatedView>
-        <movements-summary *ngIf="userAgent=== 'desktop'" [choosenTrans]="choosenTrans"
-                           [userAgent]="userAgent"></movements-summary>
+        <webit-main-side-view [status]="status" [choosenTrans]="choosenTrans" [userAgent]="userAgent"></webit-main-side-view>
       </ng-template>
     </ng-template>
   </div>
