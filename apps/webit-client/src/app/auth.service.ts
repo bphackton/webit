@@ -39,6 +39,7 @@ export class AuthService {
 
             this.socket.on(WebSocketEvents.ValidityStatus, (valid: boolean) => {
                 this.isAuthedSubj.next(valid);
+                this.socket.emit(WebSocketEvents.TokenRequest);
             });
 
             this.socket.on(WebSocketEvents.Paired, (token: Token) => {

@@ -26,7 +26,7 @@ const io = new Server(httpServer, {
 
 const authTokens: Map<string, Token> = new Map();
 
-const getAuthToken = (socket) => {
+const getAuthToken = (socketId) => {
   let tokenStr = '';
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -34,13 +34,13 @@ const getAuthToken = (socket) => {
     tokenStr += chars.charAt(Math.floor(Math.random() * chars.length));
   }
   const token: Token = { token: tokenStr, expires: Date.now() };
-  authTokens.set(socket.id, token);
+  authTokens.set(token.token, token);
   return token;
 };
 
 const isValidAuthToken = (socket: Socket, token: Token) => {
   let result = false;
-  const t = authTokens.get(socket.id);
+  const t = authTokens.get(token.token);
   if (t) {
     result = t.token === token.token && t.expires > Date.now() - 60 * 1000; // 1 minute
   }
