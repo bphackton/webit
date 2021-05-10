@@ -16,10 +16,10 @@ import {AuthService} from './auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import {ZXingScannerModule} from '@zxing/ngx-scanner';
 import {CacheService} from './cache.service';
 import { MainSideViewComponent } from './components/main-side-view/main-side-view.component';
 import { SettingComponent } from './components/setting/setting.component';
+import { QrReaderComponent } from './components/qr-reader/qr-reader.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { SettingComponent } from './components/setting/setting.component';
     MovementDetailsComponent,
     MovementsSummaryComponent,
     MainSideViewComponent,
-    SettingComponent
+    SettingComponent,
+    QrReaderComponent
   ],
   imports: [
     HttpClientModule,
@@ -39,7 +40,6 @@ import { SettingComponent } from './components/setting/setting.component';
     AppRoutingModule,
     QRCodeModule,
     ReactiveFormsModule,
-    ZXingScannerModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable

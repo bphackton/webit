@@ -15,7 +15,7 @@ const app = express();
 const httpServer = http.createServer(app);
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 //websocket
@@ -73,7 +73,7 @@ io.on(WebSocketEvents.Connection, (socket: Socket) => {
 
 });
 
-app.use(express.static(config.get('staticFolder'), {index: false}));
+app.use(express.static(config.get('staticFolder'), { index: false }));
 let content;
 app.get('/*', (req: Request, res: Response) => {
   if (!content) content = fs.readFileSync(`${config.get('staticFolder')}/index.html`, 'utf8');

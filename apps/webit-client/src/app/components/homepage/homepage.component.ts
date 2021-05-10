@@ -5,7 +5,7 @@ import {Subscription} from 'rxjs';
 import * as XLSX from 'xlsx';
 
 @Component({
-  selector: 'homepage',
+  selector: 'webit-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
@@ -43,7 +43,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   }
 
   testExcel() {
-    let element = document.getElementById('excel-table');
+    const element = document.getElementById('excel-table');
     const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
 
     /* generate workbook and add the worksheet */
@@ -54,27 +54,13 @@ export class HomepageComponent implements OnInit, OnDestroy {
     XLSX.writeFile(wb, this.fileName);
   }
 
-  camerasNotFound(e) {
-    console.log('camerasNotFound', e);
-    // confirm(e);
-    this.qrReaderActive = false;
-    const sign = prompt('enter qr auth');
-    this.aut.authenticate(sign);
-    // this.qrReaderActive = false;
-  }
-
   scanSuccess(data) {
     this.aut.authenticate(data);
+    this.qrReaderActive = false;
   }
-  scanFailure(e) {
-    console.log('scanFailure', e);
-    // this.qrReaderActive = false;
-  }
+
   scanError(e) {
-    console.log('scanError', e);
-  }
-  scanComplete(e) {
-    console.log('scanComplete', e);
+    console.log(e);
     this.qrReaderActive = false;
   }
 
