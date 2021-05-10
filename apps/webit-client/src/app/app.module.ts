@@ -20,6 +20,12 @@ import {CacheService} from './cache.service';
 import { MainSideViewComponent } from './components/main-side-view/main-side-view.component';
 import { SettingComponent } from './components/setting/setting.component';
 import { QrReaderComponent } from './components/qr-reader/qr-reader.component';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+export function playerFactory() {
+  return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
+}
 
 @NgModule({
   declarations: [
@@ -46,7 +52,8 @@ import { QrReaderComponent } from './components/qr-reader/qr-reader.component';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    FormsModule
+    FormsModule,
+    LottieModule.forRoot({ player: playerFactory })
   ],
   providers: [UserAgentService, HomepageService, AuthService, CacheService],
   bootstrap: [AppComponent]

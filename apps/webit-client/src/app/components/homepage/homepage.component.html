@@ -57,6 +57,7 @@
     </div>
     <ng-template [ngIf]="userAgent === 'desktop'">
       <ng-template [ngIf]="!authenticated" [ngIfElse]="authenticatedView">
+<!--        <ng-lottie [options]="options"></ng-lottie> // LOTTIE ANIMATION-->
         <webit-qr-code></webit-qr-code>
       </ng-template>
       <ng-template #authenticatedView>

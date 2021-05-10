@@ -3,6 +3,8 @@ import { UserAgentService } from '../../user-agent.service';
 import {AuthService} from '../../auth.service';
 import {Subscription} from 'rxjs';
 import * as XLSX from 'xlsx';
+import { AnimationOptions } from 'ngx-lottie';
+import { AnimationItem } from 'lottie-web';
 
 @Component({
   selector: 'webit-homepage',
@@ -21,7 +23,13 @@ export class HomepageComponent implements OnInit, OnDestroy {
   paySum: number;
   status = null;
 
+  // LOTTIE ANIMATION
+  options: AnimationOptions = {
+    path: '../../assets/lottie/bit_new_loader_74_175.json',
+  };
+
   private subscriptions = new Subscription();
+
 
   constructor( private userAgentService: UserAgentService, private aut: AuthService) { }
 
