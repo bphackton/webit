@@ -5,24 +5,20 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './main-side-view.component.html',
   styleUrls: ['./main-side-view.component.scss']
 })
-export class MainSideViewComponent implements OnInit {
+export class MainSideViewComponent {
   @Input() status;
   @Input() userAgent;
   @Input() choosenTrans;
   transfer = {
-    name: '',
-    amount: '',
-    desc: ''
+    name: 'אורן צזנה',
+    amount: 500,
+    desc: 'המבורגר'
   };
 
-  constructor() { }
+  statusChanged(status) {
+    this.status = status;
 
-  ngOnInit(): void {
   }
 
-  submit () {
-    this.status = 'qr-code-transfer'
-    console.log('in submit')
-  }
 
 }

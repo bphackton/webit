@@ -20,6 +20,7 @@ import {CacheService} from './cache.service';
 import { MainSideViewComponent } from './components/main-side-view/main-side-view.component';
 import { SettingComponent } from './components/setting/setting.component';
 import { QrReaderComponent } from './components/qr-reader/qr-reader.component';
+import { TransferFormComponent } from './components/transfer-form/transfer-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { QrReaderComponent } from './components/qr-reader/qr-reader.component';
     MovementsSummaryComponent,
     MainSideViewComponent,
     SettingComponent,
-    QrReaderComponent
+    QrReaderComponent,
+    TransferFormComponent
   ],
   imports: [
     HttpClientModule,

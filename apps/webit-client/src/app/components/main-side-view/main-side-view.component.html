@@ -1,24 +1,27 @@
-<div class="main-side-container">
+<div class='main-side-container'>
+  <webit-transfer-form *ngIf="status === 'money-transfer'"
+                       (statusChanged)='statusChanged($event)'></webit-transfer-form>
 
-  <div class="enter-det-modal" *ngIf="status === 'money-transfer'">
-    <h1>בבקשה הזן את פרטי בקשת התשלום</h1>
-    <input [(ngModel)]= 'transfer.name' placeholder="שם המבקש" type="text">
-    <input [(ngModel)]= 'transfer.amount' placeholder="סכום" type="number">
-    <textarea [(ngModel)]= 'transfer.desc' class="desc-area" placeholder="פירוט"></textarea>
-    <button class="sumbit-btn" (click)="submit()"> בקש תשלום</button>
- </div>
+  <!--    <qr-code [value]="123" [size]="300"></qr-code>-->
 
-<!--    <qr-code [value]="123" [size]="300"></qr-code>-->
-
-<div class="qr-code-transfer" *ngIf="status==='qr-code-transfer'">
-  <h1> סרוק קוד זה עם אפליקציית ביט על מנת להתחבר ל Webit</h1>
-  <h2> יועבר ל:  {{transfer.amount}}</h2>
-  <h2> סכום ההעברה: {{transfer.amount}}</h2>
-  <img src="../../../assets/qr.jpg" class="transfer-qr-code" alt="qr">
-  <h3>  פרטים נוספים: {{transfer.desc}}</h3>
-</div>
+  <div class='qr-code-transfer' *ngIf="status==='qr-code-transfer'">
+    <h1> ברקוד להעברה</h1>
+    <div>
+      <span class='label'> יועבר ל:</span>
+      <span class='form-data'> {{transfer.name}}</span>
+    </div>
+    <div>
+      <span class='label' >סכום ההעברה:</span>
+      <span class='form-data'> {{transfer.amount | number: '0.2'}} ₪ </span>
+    </div>
+    <img src='../../../assets/qr.jpg' class='transfer-qr-code' alt='qr'>
+    <div>
+      <span class='label' > פרטים נוספים:</span>
+      <span class='label'> {{transfer.desc}}</span>
+    </div>
+  </div>
   <movements-summary *ngIf="userAgent=== 'desktop' && status === 'summery'"
-                     [choosenTrans]="choosenTrans" [userAgent]="userAgent"></movements-summary>
+                     [choosenTrans]='choosenTrans' [userAgent]='userAgent'></movements-summary>
 
   <webit-setting *ngIf="userAgent=== 'desktop' && status === 'setting'"></webit-setting>
 </div>
