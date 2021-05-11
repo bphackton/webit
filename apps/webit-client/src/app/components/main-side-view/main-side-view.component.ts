@@ -10,13 +10,14 @@ export class MainSideViewComponent {
   @Input() userAgent;
   @Input() choosenTrans;
   transfer = {
-    name: 'אורן צזנה',
-    amount: 500,
-    desc: 'המבורגר'
+    name: '',
+    amount: '',
+    desc: ''
   };
 
-  statusChanged(status) {
-    this.status = status;
+  statusChanged(e) {
+    this.status = e.status;
+    this.transfer = e.transfer;
 
   }
 

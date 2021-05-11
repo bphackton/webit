@@ -1,5 +1,5 @@
-import { EventEmitter } from '@angular/core';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'webit-transfer-form',
@@ -8,7 +8,8 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 })
 export class TransferFormComponent {
   @Input() status;
-  @Output() statusChanged = new EventEmitter<string>()
+  @Output() statusChanged = new EventEmitter<{ status: string, transfer: any}>();
+  form: FormGroup;
   transfer = {
     name: '',
     amount: '',
@@ -16,10 +17,9 @@ export class TransferFormComponent {
   };
 
 
-
-  submit () {
-    this.status = 'qr-code-transfer'
-    this.statusChanged.emit(this.status)
+  submit() {
+    this.status = 'qr-code-transfer';
+    this.statusChanged.emit({status: this.status, transfer: this.transfer});
   }
 
 }
