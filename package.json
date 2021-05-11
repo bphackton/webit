@@ -55,7 +55,7 @@
     "zone.js": "^0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1102.0",
+    "@angular-devkit/build-angular": "^0.901.15",
     "@angular-eslint/eslint-plugin": "~1.0.0",
     "@angular-eslint/eslint-plugin-template": "~1.0.0",
     "@angular-eslint/template-parser": "~1.0.0",
@@ -79,6 +79,7 @@
     "dotenv": "6.2.0",
     "eslint": "7.10.0",
     "eslint-config-prettier": "6.0.0",
+    "file-loader": "^6.2.0",
     "file-saver": "^2.0.5",
     "jest": "26.2.2",
     "jest-preset-angular": "8.3.2",

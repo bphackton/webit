@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import QrScanner from 'qr-scanner';
+import QrScannerWorkerPath from '../../../../../../node_modules/qr-scanner/qr-scanner-worker.min.js';
 
 @Component({
   selector: 'webit-qr-reader',
@@ -15,6 +16,8 @@ export class QrReaderComponent implements AfterViewInit {
   hasCamera: boolean;
 
   ngAfterViewInit() {
+    QrScanner.WORKER_PATH = QrScannerWorkerPath;
+
     QrScanner.hasCamera().then(hasCamera => {
       this.hasCamera = hasCamera;
       console.log('hasCamera', hasCamera);
