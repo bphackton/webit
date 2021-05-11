@@ -26,6 +26,7 @@ import player from 'lottie-web';
 export function playerFactory() {
   return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
 }
+import { TransferFormComponent } from './components/transfer-form/transfer-form.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ export function playerFactory() {
     MovementsSummaryComponent,
     MainSideViewComponent,
     SettingComponent,
-    QrReaderComponent
+    QrReaderComponent,
+    TransferFormComponent
   ],
   imports: [
     HttpClientModule,
