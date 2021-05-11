@@ -1,0 +1,120 @@
+webit-transfer-form {
+  width: 100%;
+}
+
+
+.enter-det-modal {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #2c7289;
+  position: relative;
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+  }
+
+.form-container {
+  width: 90%;
+  flex-grow: 1;
+}
+  .form-field {
+    color: #fff;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-content: center;
+  }
+  label {
+    border-bottom: 1px #e0e0e06b solid;
+    flex-basis: 41%;
+    align-self: flex-end;
+    font-size: 28px;
+    padding: 10px;
+
+  }
+  input {
+    padding: 10px;
+    color: #fff;
+    width: 100%;
+    direction: rtl;
+    outline: none;
+    flex-grow: 1;
+    font-size: 28px;
+    background-color: transparent;
+    margin-top: 15px;
+    border: none;
+    border-bottom: 1px #e0e0e06b solid;
+  }
+
+  button {
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    width: 250px;
+    color: #ffffff;
+    background: transparent;
+    border: 2px solid #e0e0e06b;
+    margin-top: 30px;
+    cursor: pointer;
+  }
+
+  .done-icon {
+    // position: absolute;
+    top:5%;
+    background-image: url("../../../assets/done.svg");
+    height: 57px;
+    width: 57px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 5px;
+  }
+
+
+  .status-title {
+    background: #1e556a;
+    font-size: 25px;
+    margin: 0;
+    top: 15%;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+  }
+}
+
+.title-wrapper {
+  margin: 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.sub-title {
+  color: #fff;
+  font-size: 37px;
+  font-weight: 100;
+}
+
+i {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  background-image: url('../../../assets/ic_qr_payment.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-bottom: 5px;
+  border: none;
+}
+
+
+

@@ -1,0 +1,26 @@
+<div class='enter-det-modal'>
+  <div class='title-wrapper'>
+    <i ></i>
+    <h1 class='status-title'>העברה בסריקה</h1>
+  </div>
+  <div class='sub-title'>
+    בבקשה הזן את פרטי בקשת התשלום
+  </div>
+  <div class='form-container'>
+    <div class='form-field'>
+      <label>אנא הזן את שם המבקש:</label>
+      <input [(ngModel)]='transfer.name' placeholder='' type='text'>
+    </div>
+    <div class='form-field'>
+      <label>אנא הזן סכום:</label>
+      <input [(ngModel)]='transfer.amount'  type='text'>
+    </div>
+    <div class='form-field'>
+      <label>אנא הזן פרוט (רשות):</label>
+      <input [(ngModel)]='transfer.desc' class='desc-area'  />
+    </div>
+    <div class='btn-wrapper'>
+      <button class='sumbit-btn' (click)='submit()'> בקש תשלום</button>
+    </div>
+  </div>
+</div>
