@@ -28,6 +28,7 @@ export class AuthService {
       if (this.token) {
         this.socket.emit(WebSocketEvents.ValidateToken, this.token);
       } else {
+        this.isAuthedSubj.next(false);
         this.socket.emit(WebSocketEvents.TokenRequest);
       }
 
