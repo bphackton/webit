@@ -2,6 +2,7 @@
   <webit-qr-reader (scanError)=scanError($event) (scanSuccess)=scanSuccess($event)></webit-qr-reader>
 </ng-template>
 
+
 <ng-template #mainPage>
   <div class="main-page" [ngClass]="{'mobile': userAgent === 'mobile'}">
     <div class="view mobile-view" *ngIf="userAgent === 'mobile' || authenticated"
