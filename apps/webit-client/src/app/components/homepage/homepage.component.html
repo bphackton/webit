@@ -7,15 +7,20 @@
     <div class="view mobile-view" *ngIf="userAgent === 'mobile' || authenticated"
          [ngClass]="{'mobile-view': userAgent === 'mobile', 'web-view': userAgent === 'desktop'}">
       <div class="title">
-        <span class="user-avatar"></span>
         <div class="user-name">
-          <span>בוקר אור</span>
-          <h2>ציפי שביט</h2>
+          <img src="https://www.ezbeoni.co.il/wp-content/uploads/2021/02/%D7%A6%D7%99%D7%A4%D7%99-%D7%A9%D7%91%D7%99%D7%98-450x577.jpg" alt="">
+         <div>
+           <span>בוקר אור</span>
+           <h2>ציפי שביט</h2>
+         </div>
+        </div>
+        <div>
+          <img src="../../../assets/bit-logo.svg" alt="">
         </div>
       </div>
       <div class="nav-bar">
         <div *ngIf="userAgent === 'desktop'">
-          <button class="nav-btn setting"></button>
+          <button (click)="changeStatus('setting')" class="nav-btn setting"></button>
           <span>הגדרות</span>
         </div>
         <div>

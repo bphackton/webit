@@ -23,7 +23,7 @@
 .title {
   display: flex;
   // flex-direction: column;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
   padding: 3px 10px;
   margin-bottom: 10px;
@@ -40,18 +40,38 @@
   color: #fff;
   line-height: 0.9;
   margin-bottom: 10px;
+  display: flex;
   span {
     margin:0 7px;
   }
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  img {
+    background-size: cover;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+  }
 }
 
-.user-avatar {
-  background: url('https://www.ezbeoni.co.il/wp-content/uploads/2021/02/%D7%A6%D7%99%D7%A4%D7%99-%D7%A9%D7%91%D7%99%D7%98-450x577.jpg')
-    no-repeat;
-  background-size: cover;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
+//.user-avatar {
+//  background: url('https://www.ezbeoni.co.il/wp-content/uploads/2021/02/%D7%A6%D7%99%D7%A4%D7%99-%D7%A9%D7%91%D7%99%D7%98-450x577.jpg')
+//    no-repeat;
+//  background-size: cover;
+//  width: 65px;
+//  height: 65px;
+//  border-radius: 50%;
+//}
+
+.webit-logo {
+  background: url("../../../assets/bit-logo.svg");
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
 }
 
 .sum-wrapper {
@@ -77,7 +97,8 @@
     color: #28a745;
   }
   .warning {
-    color: #dc3545;
+    color: #e27983;
+    font-weight: bold;
   }
 }
 
