@@ -13,9 +13,9 @@ export class HomepageComponent implements OnInit, OnDestroy {
   userAgent: string;
   showDetails = false;
   choosenTrans: any;
-  authenticated = false;
+  authenticated: boolean;
   date = new Date;
-  qrReaderActive = false;
+  qrReaderActive: boolean;
   fileName= `Bit-Transactions-${this.date.getDate()}/${this.date.getUTCMonth()+1}/${this.date.getFullYear()}.xlsx`;
   addSum: number;
   paySum: number;
@@ -61,7 +61,6 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   scanError(e) {
     console.log(e);
-    this.qrReaderActive = false;
   }
 
   ngOnDestroy() {

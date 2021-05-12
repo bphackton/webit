@@ -61,10 +61,10 @@
       <movements (showTrans)=clickedTrans($event) (showSums)="showSums($event)"></movements>
     </div>
     <ng-template [ngIf]="userAgent === 'desktop'">
-      <ng-template [ngIf]="!authenticated" [ngIfElse]="authenticatedView">
+      <ng-template [ngIf]="authenticated === false">
         <webit-qr-code></webit-qr-code>
       </ng-template>
-      <ng-template #authenticatedView>
+      <ng-template [ngIf]="authenticated === true">
         <webit-main-side-view [status]="status" [choosenTrans]="choosenTrans" [userAgent]="userAgent"></webit-main-side-view>
       </ng-template>
     </ng-template>

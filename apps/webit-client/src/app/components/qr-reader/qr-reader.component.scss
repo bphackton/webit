@@ -1,0 +1,18 @@
+:host{
+  display: flex;
+  justify-content: center;
+  video{
+    max-width: 500px;
+    max-height: 500px;
+  }
+  .scan-log{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #000000;
+    text-align: center;
+  }
+}
+
