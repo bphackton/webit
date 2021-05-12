@@ -39,7 +39,6 @@ export class QrReaderComponent implements AfterViewInit {
       console.log('onDecodeError', onDecodeError);
       this.scanLog = onDecodeError;
       this.scanError.emit(onDecodeError);
-      // qrScanner.stop();
     });
     qrScanner.start();
   }

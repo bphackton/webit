@@ -41,7 +41,7 @@ const isValidAuthToken = (socket: Socket, token: Token) => {
   let result = false;
   const t = authTokens.get(token.token);
   if (t) {
-    result = t.token === token.token && t.expires > Date.now() - 60 * 1000; // 1 minute
+    result = t.token === token.token && t.expires > Date.now() - 60 * 1000 * 5; // 5 minute
   }
   return result;
 };
