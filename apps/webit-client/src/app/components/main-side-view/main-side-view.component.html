@@ -1,10 +1,12 @@
 <div class='main-side-container'>
+
   <webit-transfer-form *ngIf="status === 'money-transfer'"
                        (statusChanged)='statusChanged($event)'></webit-transfer-form>
 
   <!--    <qr-code [value]="123" [size]="300"></qr-code>-->
 
   <div class='qr-code-transfer' *ngIf="status==='qr-code-transfer'">
+    <img class="webit-logo" src="../../../assets/webit-lightgray.svg" alt="">
     <h1>אנא סרוק את הברקוד לביצוע העברה</h1>
     <div>
       <span class='label'> יועבר ל:</span>
@@ -18,6 +20,7 @@
     <div>
       <span class='label' > פרטים נוספים:</span>
       <span class='label'> {{transfer.desc}}</span>
+
     </div>
   </div>
   <movements-summary *ngIf="userAgent=== 'desktop' && status === 'summery'"

@@ -39,8 +39,8 @@
 .user-name {
   color: #fff;
   line-height: 0.9;
-  margin-bottom: 10px;
   display: flex;
+  height: 100%;
   span {
     margin:0 7px;
   }
@@ -68,10 +68,10 @@
 //}
 
 .webit-logo {
-  background: url("../../../assets/bit-logo.svg");
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 60px;
   background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .sum-wrapper {
