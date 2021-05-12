@@ -20,8 +20,7 @@ export class AuthService {
 
   private initSocket() {
     this.socket = io('', {
-      path: '/ws',
-      transports: ['websocket']
+      path: '/ws'
     });
 
     this.socket.on(WebSocketEvents.Connect, () => {

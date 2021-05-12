@@ -20,8 +20,7 @@ app.use(cookieParser());
 
 //websocket
 const io = new Server(httpServer, {
-  path: '/ws',
-  transports: ['websocket']
+  path: '/ws'
 });
 
 const authTokens: Map<string, Token> = new Map();
