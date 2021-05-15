@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AnimationOptions } from '@angular/animations';
 
 @Component({
   selector: 'webit-main-side-view',
@@ -13,6 +14,13 @@ export class MainSideViewComponent {
     name: '',
     amount: '',
     desc: ''
+  };
+
+  isLoading = false;
+
+  // LOTTIE ANIMATION
+  options: AnimationOptions = {
+    path: '../../assets/lottie/bit_new_loader_74_175.json',
   };
 
   statusChanged(e) {

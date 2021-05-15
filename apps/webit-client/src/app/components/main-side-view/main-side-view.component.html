@@ -1,9 +1,9 @@
 <div class='main-side-container'>
+            <ng-lottie *ngIf="isLoading" [options]="options"></ng-lottie>
 
   <webit-transfer-form *ngIf="status === 'money-transfer'"
                        (statusChanged)='statusChanged($event)'></webit-transfer-form>
 
-  <!--    <qr-code [value]="123" [size]="300"></qr-code>-->
 
   <div class='qr-code-transfer' *ngIf="status==='qr-code-transfer'">
     <img class="webit-logo" src="../../../assets/webit-lightgray.svg" alt="">
@@ -27,4 +27,6 @@
                      [choosenTrans]='choosenTrans' [userAgent]='userAgent'></movements-summary>
 
   <webit-setting *ngIf="userAgent=== 'desktop' && status === 'setting'"></webit-setting>
+
+  <webit-make-payment *ngIf="userAgent=== 'desktop' && status === 'make-payment'">></webit-make-payment>
 </div>
