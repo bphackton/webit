@@ -1,0 +1,32 @@
+<div class='enter-det-modal'>
+  <img class="webit-logo" src="../../../assets/webit-lightgray.svg" alt="">
+
+  <div class='title-wrapper'>
+    <h1 class='status-title'>העברת כספים</h1>
+  </div>
+  <div class='sub-title'>
+    בבקשה הזן את פרטי בקשת התשלום
+  </div>
+
+  <div class='form-container'>
+    <div class='form-field'>
+      <label>שם המבקש:</label>
+      <input [(ngModel)]='transfer.name' placeholder='' type='text'>
+    </div>
+    <div class='form-field'>
+      <label>טלפון להעברה:</label>
+      <input [(ngModel)]='transfer.phone' placeholder='' type='text'>
+    </div>
+    <div class='form-field'>
+      <label>סכום:</label>
+      <input [(ngModel)]='transfer.amount'  type='text'>
+    </div>
+    <div class='form-field'>
+      <label>פירוט:</label>
+      <input [(ngModel)]='transfer.desc'  type='text'>
+    </div>
+    <div class='btn-wrapper'>
+      <button class='sumbit-btn' (click)='submitPay()'> בקש תשלום</button>
+    </div>
+  </div>
+</div>

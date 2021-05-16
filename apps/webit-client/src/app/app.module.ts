@@ -20,7 +20,14 @@ import {CacheService} from './cache.service';
 import { MainSideViewComponent } from './components/main-side-view/main-side-view.component';
 import { SettingComponent } from './components/setting/setting.component';
 import { QrReaderComponent } from './components/qr-reader/qr-reader.component';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+export function playerFactory() {
+  return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
+}
 import { TransferFormComponent } from './components/transfer-form/transfer-form.component';
+import { MakePaymentComponent } from './components/make-payment/make-payment.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +41,8 @@ import { TransferFormComponent } from './components/transfer-form/transfer-form.
     MainSideViewComponent,
     SettingComponent,
     QrReaderComponent,
-    TransferFormComponent
+    TransferFormComponent,
+    MakePaymentComponent
   ],
   imports: [
     HttpClientModule,
@@ -48,7 +56,8 @@ import { TransferFormComponent } from './components/transfer-form/transfer-form.
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    FormsModule
+    FormsModule,
+    LottieModule.forRoot({ player: playerFactory })
   ],
   providers: [UserAgentService, HomepageService, AuthService, CacheService],
   bootstrap: [AppComponent]
