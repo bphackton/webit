@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AnimationOptions } from '@angular/animations';
+import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'webit-main-side-view',
@@ -20,7 +20,7 @@ export class MainSideViewComponent {
 
   // LOTTIE ANIMATION
   options: AnimationOptions = {
-    path: '../../assets/lottie/bit_new_loader_74_175.json',
+    path: '../../assets/lottie/webit_lottie.json',
   };
 
   statusChanged(e) {
