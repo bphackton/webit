@@ -191,6 +191,35 @@ webit-main-side-view {
 }
 
 
+.transfer-modal-mobile {
+  height: 50%;
+  width: 80%;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 20px;
+  background: #1e556a;
+  color: white;
+
+  input {
+    width: 60%;
+    height: 30px;
+    margin: 5px 0;
+  }
+  button {
+    width:50%;
+    padding: 10px 0;
+    margin: 20px;
+  }
+}
+
 @media screen and (max-width: 760px) {
   .main-page {
     margin: 0;

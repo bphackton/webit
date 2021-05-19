@@ -29,7 +29,7 @@
           <span>שלח</span>
         </div>
         <div>
-          <button class="nav-btn group"></button>
+          <button (click)="transferMobile = !transferMobile" class="nav-btn group"></button>
           <span>קבוצה</span>
         </div>
         <div>
@@ -59,7 +59,7 @@
         </div>
       </div>
 
-      <movements (showTrans)=clickedTrans($event) (showSums)="showSums($event)"></movements>
+      <movements [addedTrans]="addedTrans" (showTrans)=clickedTrans($event) (showSums)="showSums($event)"></movements>
     </div>
     <ng-template [ngIf]="userAgent === 'desktop'">
       <ng-template [ngIf]="authenticated === false">
@@ -71,3 +71,14 @@
     </ng-template>
   </div>
 </ng-template>
+
+<div *ngIf="transferMobile"  class="transfer-modal-mobile">
+  <h3>העברת כספים</h3>
+  <input [(ngModel)]="transferMobileForm.title"  type="text" placeholder="למי להעביר">
+  <input [(ngModel)]="transferMobileForm.phone"  type="tel" placeholder="טלפון">
+  <input [(ngModel)]="transferMobileForm.amount"  type="number" placeholder="סכום העברה">
+  <textarea [(ngModel)]="transferMobileForm.desc"  name="" id="" cols="30" rows="10" placeholder="פרוט על ההעברה"></textarea>
+  <button type="submit" (click)="addTransfer()">בצע העברה</button>
+
+
+</div>

@@ -13,15 +13,24 @@ export class HomepageComponent implements OnInit, OnDestroy {
   userAgent: string;
   showDetails = false;
   choosenTrans: any;
-  authenticated: boolean;
+  authenticated = true;
   date = new Date;
   qrReaderActive: boolean;
   fileName= `Bit-Transactions-${this.date.getDate()}/${this.date.getUTCMonth()+1}/${this.date.getFullYear()}.xlsx`;
   addSum: number;
   paySum: number;
   status = null;
+  transferMobile = false;
+
+  transferMobileForm = {
+    amount: null,
+    phone: null,
+    desc: null,
+    title: null
+  }
 
   private subscriptions = new Subscription();
+  addedTrans;
 
   constructor( private userAgentService: UserAgentService, private aut: AuthService) { }
 
@@ -72,6 +81,26 @@ export class HomepageComponent implements OnInit, OnDestroy {
   changeStatus(status: string) {
     this.status = status;
     console.log(status);
+
+  }
+
+  addTransfer() {
+    console.log(this.transferMobileForm);
+    let mockJson = {
+      amount: this.transferMobileForm.amount,
+      avatar: "img",
+      date: "01.10.21",
+      desc: this.transferMobileForm.desc,
+      hour: "11:11",
+      id: 10,
+      name: this.transferMobileForm.title,
+      purpose: this.transferMobileForm.desc,
+      sentTo: this.transferMobileForm.phone,
+      sumbitId: "2312420",
+      tranType: "payment"
+    }
+    this.transferMobile = false;
+    this.addedTrans = mockJson;
 
   }
 }
