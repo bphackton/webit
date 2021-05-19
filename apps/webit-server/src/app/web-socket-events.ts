@@ -13,5 +13,7 @@ export enum WebSocketEvents {
   Suspend = 'suspend',
   Authenticated = 'authenticated',
   Authenticate = 'authenticate',
+  ValidateToken = 'validateToken',
+  ValidityStatus = 'ValidityStatus'
 
 }

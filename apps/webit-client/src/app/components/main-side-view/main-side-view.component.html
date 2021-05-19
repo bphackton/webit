@@ -1,0 +1,32 @@
+<div class='main-side-container'>
+            <ng-lottie *ngIf="isLoading" [options]="options"></ng-lottie>
+
+  <webit-transfer-form *ngIf="status === 'money-transfer'"
+                       (statusChanged)='statusChanged($event)'></webit-transfer-form>
+
+
+  <div class='qr-code-transfer' *ngIf="status==='qr-code-transfer'">
+    <img class="webit-logo" src="../../../assets/webit-lightgray.svg" alt="">
+    <h1>אנא סרוק את הברקוד לביצוע העברה</h1>
+    <div>
+      <span class='label'> יועבר ל:</span>
+      <span class='form-data'> {{transfer.name}}</span>
+    </div>
+    <div>
+      <span class='label' >סכום ההעברה:</span>
+      <span class='form-data'> {{transfer.amount | number: '0.2'}} ₪ </span>
+    </div>
+    <img src='../../../assets/qr.jpg' class='transfer-qr-code' alt='qr'>
+    <div>
+      <span class='label' > פרטים נוספים:</span>
+      <span class='label'> {{transfer.desc}}</span>
+
+    </div>
+  </div>
+  <movements-summary *ngIf="userAgent=== 'desktop' && status === 'summery'"
+                     [choosenTrans]='choosenTrans' [userAgent]='userAgent'></movements-summary>
+
+  <webit-setting *ngIf="userAgent=== 'desktop' && status === 'setting'"></webit-setting>
+
+  <webit-make-payment *ngIf="userAgent=== 'desktop' && status === 'make-payment'">></webit-make-payment>
+</div>

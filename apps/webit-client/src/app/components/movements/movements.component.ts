@@ -78,12 +78,12 @@ export class MovementsComponent implements OnInit {
         this.calcSums(res);
       }
     )
-    this.webitService.getCompletedMovments().subscribe(
-      res => {
-        console.log(res)
-        this.completedMovmentsList = res;
-      }
-    )
+    // this.webitService.getCompletedMovments().subscribe(
+    //   res => {
+    //     console.log(res)
+    //     this.completedMovmentsList = res;
+    //   }
+    // )
   }
 
 

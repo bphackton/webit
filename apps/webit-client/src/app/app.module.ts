@@ -13,10 +13,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovementsSummaryComponent } from './components/movements-summary/movements-summary.component';
 import {QRCodeModule} from 'angular2-qrcode';
 import {AuthService} from './auth.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import {ZXingScannerModule} from '@zxing/ngx-scanner';
+import {CacheService} from './cache.service';
+import { MainSideViewComponent } from './components/main-side-view/main-side-view.component';
+import { SettingComponent } from './components/setting/setting.component';
+import { QrReaderComponent } from './components/qr-reader/qr-reader.component';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+export function playerFactory() {
+  return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
+}
+import { TransferFormComponent } from './components/transfer-form/transfer-form.component';
+import { MakePaymentComponent } from './components/make-payment/make-payment.component';
 
 @NgModule({
   declarations: [
@@ -26,23 +37,29 @@ import {ZXingScannerModule} from '@zxing/ngx-scanner';
     QrCodeComponent,
     MovementsListComponent,
     MovementDetailsComponent,
-    MovementsSummaryComponent
+    MovementsSummaryComponent,
+    MainSideViewComponent,
+    SettingComponent,
+    QrReaderComponent,
+    TransferFormComponent,
+    MakePaymentComponent
   ],
-    imports: [
-        HttpClientModule,
-        BrowserModule,
-        AppRoutingModule,
-        QRCodeModule,
-        ReactiveFormsModule,
-        ZXingScannerModule,
-        ServiceWorkerModule.register('ngsw-worker.js', {
-          enabled: environment.production,
-          // Register the ServiceWorker as soon as the app is stable
-          // or after 30 seconds (whichever comes first).
-          registrationStrategy: 'registerWhenStable:30000'
-        })
-    ],
-  providers: [UserAgentService, HomepageService, AuthService],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    AppRoutingModule,
+    QRCodeModule,
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
+    FormsModule,
+    LottieModule.forRoot({ player: playerFactory })
+  ],
+  providers: [UserAgentService, HomepageService, AuthService, CacheService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

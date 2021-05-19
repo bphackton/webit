@@ -1,12 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { HomepageService } from './homepage.service';
 import { UserAgentService } from '../../user-agent.service';
 import {AuthService} from '../../auth.service';
 import {Subscription} from 'rxjs';
 import * as XLSX from 'xlsx';
 
 @Component({
-  selector: 'homepage',
+  selector: 'webit-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
@@ -14,12 +13,13 @@ export class HomepageComponent implements OnInit, OnDestroy {
   userAgent: string;
   showDetails = false;
   choosenTrans: any;
-  authenticated = false;
+  authenticated: boolean;
   date = new Date;
-  qrReaderActive = false;
+  qrReaderActive: boolean;
   fileName= `Bit-Transactions-${this.date.getDate()}/${this.date.getUTCMonth()+1}/${this.date.getFullYear()}.xlsx`;
   addSum: number;
   paySum: number;
+  status = null;
 
   private subscriptions = new Subscription();
 
@@ -27,13 +27,14 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userAgent = this.userAgentService.checkDevice();
-    this.subscriptions.add(this.aut.isAuthedSubj.subscribe(res => this.authenticated = res));
+    this.subscriptions.add(this.aut.isAuthedSubj.subscribe(authenticated => this.authenticated = authenticated));
   }
 
   clickedTrans(movement) {
     console.log(movement ,'in home page');
     this.showDetails = !this.showDetails;
     this.choosenTrans = movement;
+    this.changeStatus('summery');
   }
 
   showSums(sums) {
@@ -42,7 +43,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   }
 
   testExcel() {
-    let element = document.getElementById('excel-table');
+    const element = document.getElementById('excel-table');
     const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
 
     /* generate workbook and add the worksheet */
@@ -53,34 +54,24 @@ export class HomepageComponent implements OnInit, OnDestroy {
     XLSX.writeFile(wb, this.fileName);
   }
 
-  camerasNotFound(e) {
-    confirm(e);
+  scanSuccess(data) {
+    this.aut.authenticate(data);
     this.qrReaderActive = false;
   }
 
-  scanSuccess(e) {
-    alert(e);
-    this.qrReaderActive = false;
-  }
-  scanFailure(e) {
-    // alert(e);
-    console.log(e);
-    // this.qrReaderActive = false;
-  }
   scanError(e) {
     console.log(e);
-    //this.qrReaderActive = false;
-    const sign = prompt('enter qr auth');
-    this.aut.authenticate(sign);
-  }
-  scanComplete(e) {
-    alert(e);
-    this.qrReaderActive = false;
   }
 
   ngOnDestroy() {
     if (this.subscriptions) {
       this.subscriptions.unsubscribe();
     }
+  }
+
+  changeStatus(status: string) {
+    this.status = status;
+    console.log(status);
+
   }
 }

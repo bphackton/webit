@@ -1,31 +1,31 @@
 <ng-template [ngIf]="qrReaderActive" [ngIfElse]="mainPage">
-  <zxing-scanner
-          (camerasNotFound)="camerasNotFound($event)"
-          (scanSuccess)="scanSuccess($event)"
-          (scanFailure)="scanFailure($event)"
-          (scanError)="scanError($event)"
-          (scanComplete)="scanComplete($event)"
-  ></zxing-scanner>
+  <webit-qr-reader (scanError)=scanError($event) (scanSuccess)=scanSuccess($event)></webit-qr-reader>
 </ng-template>
+
 
 <ng-template #mainPage>
   <div class="main-page" [ngClass]="{'mobile': userAgent === 'mobile'}">
     <div class="view mobile-view" *ngIf="userAgent === 'mobile' || authenticated"
          [ngClass]="{'mobile-view': userAgent === 'mobile', 'web-view': userAgent === 'desktop'}">
       <div class="title">
-        <span class="user-avatar"></span>
         <div class="user-name">
-          <span>בוקר אור</span>
-          <h2>ציפי שביט</h2>
+          <img src="https://www.ezbeoni.co.il/wp-content/uploads/2021/02/%D7%A6%D7%99%D7%A4%D7%99-%D7%A9%D7%91%D7%99%D7%98-450x577.jpg" alt="">
+         <div>
+           <span>בוקר אור</span>
+           <h2>ציפי שביט</h2>
+         </div>
+        </div>
+        <div>
+          <img class="webit-logo" src="../../../assets/webit-lightgray.svg" alt="">
         </div>
       </div>
       <div class="nav-bar">
         <div *ngIf="userAgent === 'desktop'">
-          <button class="nav-btn setting"></button>
+          <button (click)="changeStatus('setting')" class="nav-btn setting"></button>
           <span>הגדרות</span>
         </div>
         <div>
-          <button class="nav-btn give"></button>
+          <button (click)="changeStatus('make-payment')" class="nav-btn give"></button>
           <span>שלח</span>
         </div>
         <div>
@@ -45,7 +45,7 @@
           <span>יבוא לאקסל</span>
         </div>
         <div *ngIf="userAgent === 'desktop'">
-          <button class="nav-btn ask-qr-payment"></button>
+          <button (click)="changeStatus('money-transfer')" class="nav-btn ask-qr-payment"></button>
           <span>העבר בסריקה</span>
         </div>
       </div>
@@ -62,12 +62,11 @@
       <movements (showTrans)=clickedTrans($event) (showSums)="showSums($event)"></movements>
     </div>
     <ng-template [ngIf]="userAgent === 'desktop'">
-      <ng-template [ngIf]="!authenticated" [ngIfElse]="authenticatedView">
+      <ng-template [ngIf]="authenticated === false">
         <webit-qr-code></webit-qr-code>
       </ng-template>
-      <ng-template #authenticatedView>
-        <movements-summary *ngIf="userAgent=== 'desktop'" [choosenTrans]="choosenTrans"
-                           [userAgent]="userAgent"></movements-summary>
+      <ng-template [ngIf]="authenticated === true">
+        <webit-main-side-view [status]="status" [choosenTrans]="choosenTrans" [userAgent]="userAgent"></webit-main-side-view>
       </ng-template>
     </ng-template>
   </div>
