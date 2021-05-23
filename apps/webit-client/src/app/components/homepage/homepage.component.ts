@@ -13,7 +13,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   userAgent: string;
   showDetails = false;
   choosenTrans: any;
-  authenticated = true;
+  authenticated: boolean;
   date = new Date;
   qrReaderActive: boolean;
   fileName= `Bit-Transactions-${this.date.getDate()}/${this.date.getUTCMonth()+1}/${this.date.getFullYear()}.xlsx`;
@@ -36,7 +36,11 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userAgent = this.userAgentService.checkDevice();
-    this.subscriptions.add(this.aut.isAuthedSubj.subscribe(authenticated => this.authenticated = authenticated));
+    /* close for localhost debugging */
+    // this.subscriptions.add(this.aut.isAuthedSubj.subscribe(authenticated => this.authenticated = authenticated));
+    /* open for localhost debugging */
+    this.authenticated = true;
+    this.qrReaderActive = false;
   }
 
   clickedTrans(movement) {

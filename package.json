@@ -7,7 +7,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "nx": "nx",
     "start:client": "ng serve webit-client --watch",
-    "start:server": "set NODE_CONFIG_DIR=.\\apps\\webit-server\\src\\config&&nx serve webit-server",
+    "start:server": "nx serve webit-server",
     "build": "ng build",
     "build:client": "ng build --watch",
     "build-prod:client": "ng build --prod --output-path dist/deploy/webit-client",
