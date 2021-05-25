@@ -37,10 +37,14 @@ export class HomepageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.userAgent = this.userAgentService.checkDevice();
     /* close for localhost debugging */
-    // this.subscriptions.add(this.aut.isAuthedSubj.subscribe(authenticated => this.authenticated = authenticated));
+    this.subscriptions.add(this.aut.isAuthedSubj.subscribe(authenticated => this.authenticated = authenticated));
     /* open for localhost debugging */
-    this.authenticated = true;
-    this.qrReaderActive = false;
+    // this.authenticated = true;
+    // this.qrReaderActive = false;
+
+    this.subscriptions.add(this.aut.transferSubj.subscribe(transfer => {
+      this.addedTrans = transfer;
+    }));
   }
 
   clickedTrans(movement) {
@@ -76,12 +80,6 @@ export class HomepageComponent implements OnInit, OnDestroy {
     console.log(e);
   }
 
-  ngOnDestroy() {
-    if (this.subscriptions) {
-      this.subscriptions.unsubscribe();
-    }
-  }
-
   changeStatus(status: string) {
     this.status = status;
     console.log(status);
@@ -90,7 +88,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   addTransfer() {
     console.log(this.transferMobileForm);
-    let mockJson = {
+    const mockJson = {
       amount: this.transferMobileForm.amount,
       avatar: "img",
       date: "01.10.21",
@@ -104,7 +102,15 @@ export class HomepageComponent implements OnInit, OnDestroy {
       tranType: "payment"
     }
     this.transferMobile = false;
-    this.addedTrans = mockJson;
+    // this.addedTrans = mockJson;
 
+    this.aut.addTransfer(mockJson);
+
+  }
+
+  ngOnDestroy() {
+    if (this.subscriptions) {
+      this.subscriptions.unsubscribe();
+    }
   }
 }

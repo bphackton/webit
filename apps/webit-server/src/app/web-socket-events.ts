@@ -14,6 +14,7 @@ export enum WebSocketEvents {
   Authenticated = 'authenticated',
   Authenticate = 'authenticate',
   ValidateToken = 'validateToken',
-  ValidityStatus = 'ValidityStatus'
+  ValidityStatus = 'ValidityStatus',
+  Transfer = 'transfer'
 
 }

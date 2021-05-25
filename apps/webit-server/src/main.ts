@@ -67,6 +67,11 @@ io.on(WebSocketEvents.Connection, (socket: Socket) => {
     socket.to(paringSocketId).emit(WebSocketEvents.Paired, token);
   });
 
+  socket.on(WebSocketEvents.Transfer, (transfer) => {
+    console.log('socket Transfer: ', transfer);
+    socket.broadcast.emit(WebSocketEvents.Transfer, transfer);
+  });
+
   socket.on(WebSocketEvents.Disconnect, () => {
     console.log('socket disconnect: ', socket.id);
   });

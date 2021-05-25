@@ -8,6 +8,7 @@ import { CacheService } from './cache.service';
 @Injectable()
 export class AuthService {
   public isAuthedSubj = new ReplaySubject<boolean>();
+  public transferSubj = new ReplaySubject<any>();
   public tokenSubj = new Subject<string>();
   private socket;
   readonly tokenKey = 'auth-token';
@@ -46,11 +47,19 @@ export class AuthService {
         this.isAuthedSubj.next(true);
       });
 
+      this.socket.on(WebSocketEvents.Transfer, (transfer) => {
+        this.transferSubj.next(transfer);
+      });
+
     });
   }
 
-  public authenticate(token) {
+  authenticate(token) {
     this.socket.emit(WebSocketEvents.Authenticate, token);
+  }
+
+  addTransfer(transfer) {
+    this.socket.emit(WebSocketEvents.Transfer, transfer);
   }
 
 }
